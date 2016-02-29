@@ -1,0 +1,28 @@
+<idea-plugin version="2">
+  <id>com.egor69.lt</id>
+  <name>AutoLT</name>
+  <version>1.0</version>
+  <vendor>Egor69</vendor>
+
+  <description><![CDATA[
+      Auto Live Templates finder
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Initial
+    ]]>
+  </change-notes>
+
+  <idea-version since-build="107.105"/>
+
+  <extensions defaultExtensionNs="com.intellij"/>
+
+  <actions>
+    <action id="TemplatesFinder.ID" class="com.egor69.lt.TemplatesFindAction" text="Find Templates"
+            description="Find templates in project">
+      <add-to-group group-id="AnalyzeActions" anchor="last"/>
+      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt MULTIPLY"/>
+    </action>
+  </actions>
+
+</idea-plugin>
