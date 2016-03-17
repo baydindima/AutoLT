@@ -1,26 +1,37 @@
 package com.egor69.lt.finder.simple;
 
+import com.egor69.lt.util.Recursive;
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.psi.*;
 import com.intellij.psi.tree.IElementType;
+import org.apache.commons.lang.StringUtils;
 
 import java.util.*;
+import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class SimpleTemplatesFinder {
-    private static double MATCHES_PERCENTAGE = 0.69;
+    private static final double MATCHES_PERCENTAGE = 0.69;
+    private static final int MINIMUM_TEMPLATE_DEPTH = 3;
     private List<PsiFile> psiFiles;
 
     public SimpleTemplatesFinder(List<PsiFile> psiFiles) {
         this.psiFiles = psiFiles;
     }
 
-    public void run() {
+    public List<SimpleTemplate> analyze() {
         Map<IElementType, List<ASTNode>> nodeTypeMap = new HashMap<>();
-        Consumer<PsiElement> psiElementConsumer = element -> {
-            ASTNode astNode = element.getNode();
+        Recursive<BiPredicate<Integer, ASTNode>> possibleTemplatePredicate = new Recursive<>();
+        possibleTemplatePredicate.function = (depth, astNode) -> {
+            if (depth == MINIMUM_TEMPLATE_DEPTH) return true;
+            for (ASTNode childNode : astNode.getChildren(null))
+                if (possibleTemplatePredicate.function.test(depth + 1, childNode))
+                    return true;
+            return false;
+        };
+        Consumer<ASTNode> astNodeConsumer = astNode -> {
             IElementType elementType = astNode.getElementType();
             if (!nodeTypeMap.containsKey(elementType)) nodeTypeMap.put(elementType, new LinkedList<>());
             nodeTypeMap.get(elementType).add(astNode);
@@ -29,7 +40,8 @@ public class SimpleTemplatesFinder {
             @Override
             public void visitElement(PsiElement element) {
                 super.visitElement(element);
-                psiElementConsumer.accept(element);
+                ASTNode astNode = element.getNode();
+                if (possibleTemplatePredicate.function.test(0, astNode)) astNodeConsumer.accept(astNode);
             }
         }));
 
@@ -45,19 +57,23 @@ public class SimpleTemplatesFinder {
                     return sc[0];
                 }).collect(Collectors.toList())));
 
-        Map<IElementType, Set<String>> templatesMap = new HashMap<>();
+        Map<IElementType, Set<SimpleTemplate>> templatesMap = new HashMap<>();
         checkersMap.forEach((elementType, similarityCheckers) -> {
-            templatesMap.put(elementType, new HashSet<>());
+            Set<SimpleTemplate> templatesSet = new HashSet<>();
             int matchesBound = (int) (MATCHES_PERCENTAGE * similarityCheckers.size());
             similarityCheckers.forEach(similarityChecker -> {
-                String template = similarityChecker.getTemplate(matchesBound);
-                if (template != null) templatesMap.get(elementType).add(template);
+                SimpleTemplate template = similarityChecker.getTemplate(matchesBound);
+                if (template != null) templatesSet.add(template);
             });
+            if (templatesSet.size() > 0) templatesMap.put(elementType, templatesSet);
         });
 
-        templatesMap.forEach((elementType, templatesSet) -> {
-            System.out.print("\n" + elementType.toString() + ":\n");
-            templatesSet.forEach(template -> System.out.print("-------\n" + template + "\n"));
-        });
+        List<SimpleTemplate> templatesList = new LinkedList<>();
+        templatesMap.values().forEach(templatesList::addAll);
+        templatesList = templatesList.parallelStream()
+                .filter(st -> StringUtils.countMatches(st.getBody(), "_") < (int) (0.3 * st.getBody().length()))
+                .collect(Collectors.toList());
+
+        return templatesList;
     }
 }
