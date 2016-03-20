@@ -1,6 +1,11 @@
 package com.egor69.lt.finder.simple;
 
 import com.egor69.lt.util.Recursive;
+
+import static com.egor69.lt.finder.simple.Parameters.Name.DEPTH_MINIMUM;
+import static com.egor69.lt.finder.simple.Parameters.Name.MATCH_PERCENTAGE;
+import static com.egor69.lt.finder.simple.Parameters.Name.MATCH_MINIMUM;
+
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.application.ApplicationManager;
 import com.intellij.psi.*;
@@ -13,19 +18,23 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class SimpleTemplatesFinder {
-    private static final double MATCHES_PERCENTAGE = 0.69;
-    private static final int MINIMUM_TEMPLATE_DEPTH = 3;
     private List<PsiFile> psiFiles;
+    private int depthMinimum;
+    private double matchPercentage;
+    private int matchMinimum;
 
-    public SimpleTemplatesFinder(List<PsiFile> psiFiles) {
+    public SimpleTemplatesFinder(List<PsiFile> psiFiles, Parameters parameters) {
         this.psiFiles = psiFiles;
+        depthMinimum = parameters.getParameter(DEPTH_MINIMUM);
+        matchPercentage = 0.01 * parameters.getParameter(MATCH_PERCENTAGE);
+        matchMinimum = parameters.getParameter(MATCH_MINIMUM);
     }
 
     public List<SimpleTemplate> analyze() {
         Map<IElementType, List<ASTNode>> nodeTypeMap = new HashMap<>();
         Recursive<BiPredicate<Integer, ASTNode>> possibleTemplatePredicate = new Recursive<>();
         possibleTemplatePredicate.function = (depth, astNode) -> {
-            if (depth == MINIMUM_TEMPLATE_DEPTH) return true;
+            if (depth == depthMinimum) return true;
             for (ASTNode childNode : astNode.getChildren(null))
                 if (possibleTemplatePredicate.function.test(depth + 1, childNode))
                     return true;
@@ -60,7 +69,7 @@ public class SimpleTemplatesFinder {
         Map<IElementType, Set<SimpleTemplate>> templatesMap = new HashMap<>();
         checkersMap.forEach((elementType, similarityCheckers) -> {
             Set<SimpleTemplate> templatesSet = new HashSet<>();
-            int matchesBound = (int) (MATCHES_PERCENTAGE * similarityCheckers.size());
+            int matchesBound = Math.max((int) (matchPercentage * similarityCheckers.size()), matchMinimum);
             similarityCheckers.forEach(similarityChecker -> {
                 SimpleTemplate template = similarityChecker.getTemplate(matchesBound);
                 if (template != null) templatesSet.add(template);

@@ -1,7 +1,9 @@
 package com.egor69.lt;
 
+import com.egor69.lt.finder.simple.Parameters;
 import com.egor69.lt.finder.simple.SimpleTemplate;
 import com.egor69.lt.finder.simple.SimpleTemplatesFinder;
+import com.egor69.lt.ui.ParametersDialog;
 import com.egor69.lt.ui.TemplatesDialog;
 import com.egor69.lt.util.Recursive;
 import com.intellij.openapi.actionSystem.AnAction;
@@ -32,7 +34,7 @@ public class TemplatesFindAction extends AnAction {
 
         Recursive<Consumer<PsiDirectory>> psiDirectoryConsumer = new Recursive<>();
         psiDirectoryConsumer.function = psiDirectory -> {
-            for (PsiFile file : psiDirectory.getFiles()) psiFiles.add(file);
+            psiFiles.addAll(Arrays.asList(psiDirectory.getFiles()));
             for (PsiDirectory subdirectory : psiDirectory.getSubdirectories())
                 psiDirectoryConsumer.function.accept(subdirectory);
         };
@@ -42,9 +44,11 @@ public class TemplatesFindAction extends AnAction {
                 .map(psiManager::findDirectory)
                 .forEach(psiDirectoryConsumer.function::accept);
 
-        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles).analyze();
-
-        TemplatesDialog.showDialog(project, templatesList);
+        Parameters parameters = ParametersDialog.showDialogAndGetParameters(project);
+        if (parameters != null) {
+            List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+            TemplatesDialog.showDialog(project, templatesList);
+        }
     }
 
 }

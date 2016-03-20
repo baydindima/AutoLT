@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 public class TemplatesDialog extends DialogWrapper {
     private List<String> templatesList;
 
-    protected TemplatesDialog(@Nullable Project project, List<SimpleTemplate> templatesList) {
+    protected TemplatesDialog(Project project, List<SimpleTemplate> templatesList) {
         super(project);
         this.templatesList = templatesList.parallelStream()
                 .map(st -> "<html>------"

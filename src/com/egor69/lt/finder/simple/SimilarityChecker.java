@@ -7,8 +7,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class SimilarityChecker {
-    private static final int MATCHES_THRESHOLD = 10;
-
     private SimilarityTree similarityTree;
 
     public SimilarityChecker(ASTNode astNode) {
@@ -24,11 +22,10 @@ public class SimilarityChecker {
     }
 
     public SimpleTemplate getTemplate(int matchesBound) {
-        int needfulMatches = Math.max(matchesBound, MATCHES_THRESHOLD);
-        if (!similarityTree.checkMatchesBound(needfulMatches)) return null;
+        if (!similarityTree.checkMatchesBound(matchesBound)) return null;
         return new SimpleTemplate(
-                similarityTree.getMinMatches(needfulMatches),
-                similarityTree.getTemplate(needfulMatches).replaceAll("(##)+", "_")
+                similarityTree.getMinMatches(matchesBound),
+                similarityTree.getTemplate(matchesBound).replaceAll("(##)+", "_")
         );
     }
 
@@ -58,7 +55,7 @@ public class SimilarityChecker {
                 for (int i = 0; i < childrenTrees.size(); ++i) {
                     childrenTrees.get(i).add(astNodeChildren[i]);
                 }
-            } /*else {
+            } else {
                 int[][] lcs = new int[childrenTrees.size() + 1][astNodeChildren.length + 1];
                 Direction[][] lcsDirs = new Direction[childrenTrees.size() + 1][astNodeChildren.length + 1];
                 for (int i = 0; i < childrenTrees.size(); ++i) {
@@ -94,7 +91,7 @@ public class SimilarityChecker {
                             break;
                     }
                 }
-            }*/
+            }
         }
 
         public boolean checkMatchesBound(int matchesBound) {
