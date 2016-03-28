@@ -1,10 +1,16 @@
 package com.egor69.lt.finder.simple;
 
-import com.egor69.lt.util.Recursive;
+import com.egor69.lt.util.FilterSet;
+import com.egor69.lt.util.Parameters;
 
-import static com.egor69.lt.finder.simple.Parameters.Name.DEPTH_MINIMUM;
-import static com.egor69.lt.finder.simple.Parameters.Name.MATCH_PERCENTAGE;
-import static com.egor69.lt.finder.simple.Parameters.Name.MATCH_MINIMUM;
+import static com.egor69.lt.util.Parameters.Name.DEPTH_MINIMUM;
+import static com.egor69.lt.util.Parameters.Name.MATCHES_PERCENTAGE_MINIMUM;
+import static com.egor69.lt.util.Parameters.Name.MATCHES_MINIMUM;
+import static com.egor69.lt.util.Parameters.Name.LENGTH_MINIMUM;
+import static com.egor69.lt.util.Parameters.Name.NODES_MINIMUM;
+import static com.egor69.lt.util.Parameters.Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM;
+import static com.egor69.lt.util.Parameters.Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM;
+import static com.egor69.lt.util.ASTNodeOps.*;
 
 import com.intellij.lang.ASTNode;
 import com.intellij.openapi.application.ApplicationManager;
@@ -13,46 +19,56 @@ import com.intellij.psi.tree.IElementType;
 import org.apache.commons.lang.StringUtils;
 
 import java.util.*;
-import java.util.function.BiPredicate;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class SimpleTemplatesFinder {
     private List<PsiFile> psiFiles;
     private int depthMinimum;
-    private double matchPercentage;
-    private int matchMinimum;
+    private double matchesPercentageMinimum;
+    private int matchesMinimum;
+    private int lengthMinimum;
+    private int nodesMinimum;
+    private double placeholdersLengthPercentageMaximum;
+    private double placeholderNodesPercentageMaximum;
 
     public SimpleTemplatesFinder(List<PsiFile> psiFiles, Parameters parameters) {
         this.psiFiles = psiFiles;
         depthMinimum = parameters.getParameter(DEPTH_MINIMUM);
-        matchPercentage = 0.01 * parameters.getParameter(MATCH_PERCENTAGE);
-        matchMinimum = parameters.getParameter(MATCH_MINIMUM);
+        matchesPercentageMinimum = 0.01 * parameters.getParameter(MATCHES_PERCENTAGE_MINIMUM);
+        matchesMinimum = parameters.getParameter(MATCHES_MINIMUM);
+        lengthMinimum = parameters.getParameter(LENGTH_MINIMUM);
+        nodesMinimum = parameters.getParameter(NODES_MINIMUM);
+        placeholdersLengthPercentageMaximum = 0.01 * parameters.getParameter(PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM);
+        placeholderNodesPercentageMaximum = 0.01 * parameters.getParameter(PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM);
     }
 
     public List<SimpleTemplate> analyze() {
+        Stream.Builder<ASTNode> astNodeStreamBuilder = Stream.builder();
+        psiFiles.forEach(psiFile -> psiFile.accept(new PsiRecursiveElementWalkingVisitor() {
+            @Override
+            public void visitElement(PsiElement element) {
+                super.visitElement(element);
+                astNodeStreamBuilder.accept(element.getNode());
+            }
+        }));
+
+        FilterSet<ASTNode> astNodeFilterSet = new FilterSet<>();
+        astNodeFilterSet.add(
+                astNode -> astNode.getTextLength() >= lengthMinimum,
+                astNode -> depth(astNode) >= depthMinimum,
+                astNode -> nodes(astNode) >= nodesMinimum
+        );
+        Stream<ASTNode> astNodeStream = astNodeFilterSet.filter(astNodeStreamBuilder.build());
+
         Map<IElementType, List<ASTNode>> nodeTypeMap = new HashMap<>();
-        Recursive<BiPredicate<Integer, ASTNode>> possibleTemplatePredicate = new Recursive<>();
-        possibleTemplatePredicate.function = (depth, astNode) -> {
-            if (depth == depthMinimum) return true;
-            for (ASTNode childNode : astNode.getChildren(null))
-                if (possibleTemplatePredicate.function.test(depth + 1, childNode))
-                    return true;
-            return false;
-        };
         Consumer<ASTNode> astNodeConsumer = astNode -> {
             IElementType elementType = astNode.getElementType();
             if (!nodeTypeMap.containsKey(elementType)) nodeTypeMap.put(elementType, new LinkedList<>());
             nodeTypeMap.get(elementType).add(astNode);
         };
-        psiFiles.forEach(psiFile -> psiFile.accept(new PsiRecursiveElementWalkingVisitor() {
-            @Override
-            public void visitElement(PsiElement element) {
-                super.visitElement(element);
-                ASTNode astNode = element.getNode();
-                if (possibleTemplatePredicate.function.test(0, astNode)) astNodeConsumer.accept(astNode);
-            }
-        }));
+        astNodeStream.forEach(astNodeConsumer);
 
         Map<IElementType, List<SimilarityChecker>> checkersMap = new HashMap<>();
         nodeTypeMap.forEach((elementType, astNodes) -> checkersMap.put(elementType,
@@ -69,7 +85,7 @@ public class SimpleTemplatesFinder {
         Map<IElementType, Set<SimpleTemplate>> templatesMap = new HashMap<>();
         checkersMap.forEach((elementType, similarityCheckers) -> {
             Set<SimpleTemplate> templatesSet = new HashSet<>();
-            int matchesBound = Math.max((int) (matchPercentage * similarityCheckers.size()), matchMinimum);
+            int matchesBound = Math.max((int) (matchesPercentageMinimum * similarityCheckers.size()), matchesMinimum);
             similarityCheckers.forEach(similarityChecker -> {
                 SimpleTemplate template = similarityChecker.getTemplate(matchesBound);
                 if (template != null) templatesSet.add(template);
@@ -80,7 +96,7 @@ public class SimpleTemplatesFinder {
         List<SimpleTemplate> templatesList = new LinkedList<>();
         templatesMap.values().forEach(templatesList::addAll);
         templatesList = templatesList.parallelStream()
-                .filter(st -> StringUtils.countMatches(st.getBody(), "_") < (int) (0.3 * st.getBody().length()))
+                .filter(st -> StringUtils.countMatches(st.getBody(), "_") < (int) (placeholdersLengthPercentageMaximum * st.getBody().length()))
                 .collect(Collectors.toList());
 
         return templatesList;

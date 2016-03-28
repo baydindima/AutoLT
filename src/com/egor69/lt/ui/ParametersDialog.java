@@ -1,7 +1,7 @@
 package com.egor69.lt.ui;
 
-import com.egor69.lt.finder.simple.Parameters;
-import com.egor69.lt.finder.simple.Parameters.Name;
+import com.egor69.lt.util.Parameters;
+import com.egor69.lt.util.Parameters.Name;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.Pair;

@@ -1,6 +1,6 @@
 package com.egor69.lt;
 
-import com.egor69.lt.finder.simple.Parameters;
+import com.egor69.lt.util.Parameters;
 import com.egor69.lt.finder.simple.SimpleTemplate;
 import com.egor69.lt.finder.simple.SimpleTemplatesFinder;
 import com.egor69.lt.ui.ParametersDialog;
