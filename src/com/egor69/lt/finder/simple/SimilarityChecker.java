@@ -2,6 +2,7 @@ package com.egor69.lt.finder.simple;
 
 import com.egor69.lt.util.Direction;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.tree.IElementType;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -23,16 +24,15 @@ public class SimilarityChecker {
 
     public SimpleTemplate getTemplate(int matchesBound) {
         if (!similarityTree.checkMatchesBound(matchesBound)) return null;
-        return new SimpleTemplate(
-                similarityTree.getMinMatches(matchesBound),
-                similarityTree.getTemplate(matchesBound).replaceAll("(##)+", "_")
-        );
+        int minMatches = similarityTree.getMinMatches(matchesBound);
+        return new SimpleTemplate(minMatches, similarityTree);
     }
 
-    private class SimilarityTree {
+    public class SimilarityTree {
         //private ASTNode astNodeT;
         private String nodeText;
         private int matches;
+        private IElementType elementType;
         //private Map<String, Integer> textVariants;
         private List<SimilarityTree> childrenTrees;
 
@@ -40,10 +40,27 @@ public class SimilarityChecker {
             //astNodeT = astNode;
             nodeText = astNode.getText();
             matches = 0;
+            elementType = astNode.getElementType();
             //textVariants = new HashMap<>();
             childrenTrees = Arrays.stream(astNode.getChildren(null))
                     .map(SimilarityTree::new)
                     .collect(Collectors.toList());
+        }
+
+        public String getNodeText() {
+            return nodeText;
+        }
+
+        public int getMatches() {
+            return matches;
+        }
+
+        public IElementType getElementType() {
+            return elementType;
+        }
+
+        public List<SimilarityTree> getChildrenTrees() {
+            return childrenTrees;
         }
 
         public void add(ASTNode astNode) {
@@ -108,14 +125,6 @@ public class SimilarityChecker {
                     .map(child -> child.getMinMatches(matchesBound))
                     .min(Comparator.naturalOrder())
                     .orElse(Integer.MAX_VALUE);
-        }
-
-        public String getTemplate(int matchesBound) {
-            if (matches >= matchesBound) return nodeText;
-            if (childrenTrees.size() == 0) return "##";
-            return childrenTrees.stream()
-                    .map(child -> child.getTemplate(matchesBound))
-                    .collect(Collectors.joining());
         }
     }
 }

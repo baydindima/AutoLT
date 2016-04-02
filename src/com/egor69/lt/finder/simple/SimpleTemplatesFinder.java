@@ -95,9 +95,19 @@ public class SimpleTemplatesFinder {
 
         List<SimpleTemplate> templatesList = new LinkedList<>();
         templatesMap.values().forEach(templatesList::addAll);
-        templatesList = templatesList.parallelStream()
-                .filter(st -> StringUtils.countMatches(st.getBody(), "_") < (int) (placeholdersLengthPercentageMaximum * st.getBody().length()))
-                .collect(Collectors.toList());
+
+        FilterSet<SimpleTemplate> simpleTemplateFilterSet = new FilterSet<>();
+        simpleTemplateFilterSet.add(
+                simpleTemplate -> StringUtils.countMatches(simpleTemplate.getBody(), "_")
+                        < (int) (placeholdersLengthPercentageMaximum * simpleTemplate.getBody().length()),
+                simpleTemplate -> simpleTemplate.nodes() >= nodesMinimum,
+                simpleTemplate -> simpleTemplate.depth() >= depthMinimum,
+                simpleTemplate -> simpleTemplate.placeholderNodes()
+                        < (int) (placeholderNodesPercentageMaximum * simpleTemplate.nodes())
+        );
+
+        templatesList = simpleTemplateFilterSet.filter(templatesList).collect(Collectors.toList());
+        Collections.sort(templatesList, (o1, o2) -> Integer.compare(o2.getOccurrencesNumber(), o1.getOccurrencesNumber()));
 
         return templatesList;
     }

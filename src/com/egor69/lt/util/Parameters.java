@@ -55,7 +55,7 @@ public class Parameters {
     static {
         DEFAULT_MAP = new HashMap<>();
         DEFAULT_MAP.put(Name.DEPTH_MINIMUM, 3);
-        DEFAULT_MAP.put(Name.MATCHES_PERCENTAGE_MINIMUM, 50);
+        DEFAULT_MAP.put(Name.MATCHES_PERCENTAGE_MINIMUM, 10);
         DEFAULT_MAP.put(Name.MATCHES_MINIMUM, 10);
         DEFAULT_MAP.put(Name.LENGTH_MINIMUM, 20);
         DEFAULT_MAP.put(Name.NODES_MINIMUM, 5);
