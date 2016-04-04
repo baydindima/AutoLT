@@ -37,7 +37,7 @@ public class Parameters {
 
     static {
         BOUNDS_MAP = new HashMap<>();
-        BOUNDS_MAP.put(Name.DEPTH_MINIMUM, Pair.create(1, 7));
+        BOUNDS_MAP.put(Name.DEPTH_MINIMUM, Pair.create(3, 10));
         BOUNDS_MAP.put(Name.MATCHES_PERCENTAGE_MINIMUM, Pair.create(0, 100));
         BOUNDS_MAP.put(Name.MATCHES_MINIMUM, Pair.create(1, 100));
         BOUNDS_MAP.put(Name.LENGTH_MINIMUM, Pair.create(1, 200));
@@ -54,7 +54,7 @@ public class Parameters {
 
     static {
         DEFAULT_MAP = new HashMap<>();
-        DEFAULT_MAP.put(Name.DEPTH_MINIMUM, 3);
+        DEFAULT_MAP.put(Name.DEPTH_MINIMUM, 5);
         DEFAULT_MAP.put(Name.MATCHES_PERCENTAGE_MINIMUM, 10);
         DEFAULT_MAP.put(Name.MATCHES_MINIMUM, 10);
         DEFAULT_MAP.put(Name.LENGTH_MINIMUM, 20);

@@ -99,7 +99,7 @@ public class SimpleTemplatesFinder {
         FilterSet<SimpleTemplate> simpleTemplateFilterSet = new FilterSet<>();
         simpleTemplateFilterSet.add(
                 simpleTemplate -> StringUtils.countMatches(simpleTemplate.getBody(), "_")
-                        < (int) (placeholdersLengthPercentageMaximum * simpleTemplate.getBody().length()),
+                        < (int) (placeholdersLengthPercentageMaximum * simpleTemplate.getBody().replaceAll("\\s+", "").length()),
                 simpleTemplate -> simpleTemplate.nodes() >= nodesMinimum,
                 simpleTemplate -> simpleTemplate.depth() >= depthMinimum,
                 simpleTemplate -> simpleTemplate.placeholderNodes()
@@ -107,7 +107,21 @@ public class SimpleTemplatesFinder {
         );
 
         templatesList = simpleTemplateFilterSet.filter(templatesList).collect(Collectors.toList());
-        Collections.sort(templatesList, (o1, o2) -> Integer.compare(o2.getOccurrencesNumber(), o1.getOccurrencesNumber()));
+        Collections.sort(templatesList, (o1, o2) -> {
+            int occurrencesCompare = Integer.compare(o2.getOccurrencesNumber(), o1.getOccurrencesNumber());
+            return occurrencesCompare == 0 ? Integer.compare(o2.getBody().length(), o1.getBody().length()) : occurrencesCompare;
+        });
+
+        Set<Integer> toDeleteSet = new TreeSet<>(Comparator.reverseOrder());
+        for (int i = 0; i < templatesList.size(); ++i) {
+            for (int j = 0; j < templatesList.size(); ++j) {
+                if (i != j && templatesList.get(i).getBody().contains(templatesList.get(j).getBody())) {
+                    toDeleteSet.add(j);
+                }
+            }
+        }
+        final List<SimpleTemplate> finalTemplatesList = templatesList;
+        toDeleteSet.forEach(i -> finalTemplatesList.remove(i.intValue()));
 
         return templatesList;
     }
