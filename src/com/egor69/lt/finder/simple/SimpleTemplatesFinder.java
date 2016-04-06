@@ -1,6 +1,7 @@
 package com.egor69.lt.finder.simple;
 
 import com.egor69.lt.util.FilterSet;
+import com.egor69.lt.util.ListOps;
 import com.egor69.lt.util.Parameters;
 
 import static com.egor69.lt.util.Parameters.Name.DEPTH_MINIMUM;
@@ -98,19 +99,19 @@ public class SimpleTemplatesFinder {
 
         FilterSet<SimpleTemplate> simpleTemplateFilterSet = new FilterSet<>();
         simpleTemplateFilterSet.add(
+                simpleTemplate -> simpleTemplate.getBody().length() >= lengthMinimum,
                 simpleTemplate -> StringUtils.countMatches(simpleTemplate.getBody(), "_")
-                        < (int) (placeholdersLengthPercentageMaximum * simpleTemplate.getBody().replaceAll("\\s+", "").length()),
+                        <= (int) (placeholdersLengthPercentageMaximum * simpleTemplate.getBody().replaceAll("\\s+", "").length()),
                 simpleTemplate -> simpleTemplate.nodes() >= nodesMinimum,
                 simpleTemplate -> simpleTemplate.depth() >= depthMinimum,
                 simpleTemplate -> simpleTemplate.placeholderNodes()
-                        < (int) (placeholderNodesPercentageMaximum * simpleTemplate.nodes())
+                        <= (int) (placeholderNodesPercentageMaximum * simpleTemplate.nodes())
         );
 
         templatesList = simpleTemplateFilterSet.filter(templatesList).collect(Collectors.toList());
-        Collections.sort(templatesList, (o1, o2) -> {
-            int occurrencesCompare = Integer.compare(o2.getOccurrencesNumber(), o1.getOccurrencesNumber());
-            return occurrencesCompare == 0 ? Integer.compare(o2.getBody().length(), o1.getBody().length()) : occurrencesCompare;
-        });
+        Collections.sort(templatesList, (o1, o2) -> Integer.compare(o2.getOccurrencesNumber(), o1.getOccurrencesNumber()));
+
+        final List<SimpleTemplate> finalTemplatesList = templatesList;
 
         Set<Integer> toDeleteSet = new TreeSet<>(Comparator.reverseOrder());
         for (int i = 0; i < templatesList.size(); ++i) {
@@ -120,7 +121,17 @@ public class SimpleTemplatesFinder {
                 }
             }
         }
-        final List<SimpleTemplate> finalTemplatesList = templatesList;
+        toDeleteSet.forEach(i -> finalTemplatesList.remove(i.intValue()));
+
+
+        toDeleteSet = new TreeSet<>(Comparator.reverseOrder());
+        for (int i = 0; i < templatesList.size(); ++i) {
+            for (int j = 0; j < templatesList.size(); ++j) {
+                if (i != j && ListOps.hasSubSequence(templatesList.get(i).textNodes(), templatesList.get(j).textNodes())) {
+                    toDeleteSet.add(j);
+                }
+            }
+        }
         toDeleteSet.forEach(i -> finalTemplatesList.remove(i.intValue()));
 
         return templatesList;

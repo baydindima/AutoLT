@@ -65,7 +65,10 @@ public class SimilarityChecker {
 
         public void add(ASTNode astNode) {
             String astNodeText = astNode.getText();
-            if (nodeText.equals(astNodeText)) ++matches;
+            if (nodeText.equals(astNodeText)) {
+                incrementMatches();
+                return;
+            }
             //textVariants.put(astNodeText, textVariants.getOrDefault(astNodeText, 0) + 1);
             ASTNode[] astNodeChildren = astNode.getChildren(null);
             if (childrenTrees.size() == astNodeChildren.length) {
@@ -98,7 +101,7 @@ public class SimilarityChecker {
                         case NW:
                             --i;
                             --j;
-                            ++childrenTrees.get(i).matches;
+                            childrenTrees.get(i).incrementMatches();
                             break;
                         case N:
                             --i;
@@ -109,6 +112,11 @@ public class SimilarityChecker {
                     }
                 }
             }
+        }
+
+        private void incrementMatches() {
+            ++matches;
+            childrenTrees.forEach(SimilarityTree::incrementMatches);
         }
 
         public boolean checkMatchesBound(int matchesBound) {

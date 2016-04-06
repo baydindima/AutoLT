@@ -2,6 +2,7 @@ package com.egor69.lt.finder.simple;
 
 import com.intellij.psi.tree.IElementType;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -40,8 +41,12 @@ public class SimpleTemplate {
         return tree.getPlaceholderNodes();
     }
 
+    public List<String> textNodes() {
+        return tree.getTextNodes();
+    }
+
     private SimpleTemplateTree createTree(SimilarityChecker.SimilarityTree similarityTree) {
-        if (similarityTree.getMatches() >= occurrencesNumber)
+        if (similarityTree.getChildrenTrees().size() == 0 && similarityTree.getMatches() >= occurrencesNumber)
             return new ElementNode(similarityTree.getNodeText());
         if (similarityTree.checkMatchesBound(occurrencesNumber))
             return new IntermediateNode(similarityTree.getChildrenTrees().stream().map(this::createTree).collect(Collectors.toList()));
@@ -54,6 +59,7 @@ public class SimpleTemplate {
         int getNodes();
         int getElementNodes();
         int getPlaceholderNodes();
+        List<String> getTextNodes();
     }
 
     private class PlaceholderNode implements SimpleTemplateTree {
@@ -89,6 +95,11 @@ public class SimpleTemplate {
         public String getBody() {
             return body;
         }
+
+        @Override
+        public List<String> getTextNodes() {
+            return new LinkedList<>();
+        }
     }
 
     private class IntermediateNode implements SimpleTemplateTree {
@@ -122,6 +133,13 @@ public class SimpleTemplate {
         public String getBody() {
             return subtrees.parallelStream().map(SimpleTemplateTree::getBody).collect(Collectors.joining());
         }
+
+        @Override
+        public List<String> getTextNodes() {
+            List<String> result = new LinkedList<>();
+            subtrees.stream().map(SimpleTemplateTree::getTextNodes).forEach(result::addAll);
+            return result;
+        }
     }
 
     private class ElementNode implements SimpleTemplateTree {
@@ -154,6 +172,13 @@ public class SimpleTemplate {
         @Override
         public String getBody() {
             return body;
+        }
+
+        @Override
+        public List<String> getTextNodes() {
+            List<String> result = new LinkedList<>();
+            if (!body.matches("\\s*")) result.add(body);
+            return result;
         }
     }
 
