@@ -83,19 +83,14 @@ public class SimpleTemplatesFinder {
                     return sc[0];
                 }).collect(Collectors.toList())));
 
-        Map<IElementType, Set<SimpleTemplate>> templatesMap = new HashMap<>();
+        Set<SimpleTemplate> templatesSet = new HashSet<>();
         checkersMap.forEach((elementType, similarityCheckers) -> {
-            Set<SimpleTemplate> templatesSet = new HashSet<>();
             int matchesBound = Math.max((int) (matchesPercentageMinimum * similarityCheckers.size()), matchesMinimum);
             similarityCheckers.forEach(similarityChecker -> {
                 SimpleTemplate template = similarityChecker.getTemplate(matchesBound);
                 if (template != null) templatesSet.add(template);
             });
-            if (templatesSet.size() > 0) templatesMap.put(elementType, templatesSet);
         });
-
-        List<SimpleTemplate> templatesList = new LinkedList<>();
-        templatesMap.values().forEach(templatesList::addAll);
 
         FilterSet<SimpleTemplate> simpleTemplateFilterSet = new FilterSet<>();
         simpleTemplateFilterSet.add(
@@ -108,7 +103,7 @@ public class SimpleTemplatesFinder {
                         <= (int) (placeholderNodesPercentageMaximum * simpleTemplate.nodes())
         );
 
-        templatesList = simpleTemplateFilterSet.filter(templatesList).collect(Collectors.toList());
+        List<SimpleTemplate> templatesList = simpleTemplateFilterSet.filter(templatesSet).collect(Collectors.toList());
         Collections.sort(templatesList, (o1, o2) -> Integer.compare(o2.getOccurrencesNumber(), o1.getOccurrencesNumber()));
 
         final List<SimpleTemplate> finalTemplatesList = templatesList;
@@ -122,7 +117,6 @@ public class SimpleTemplatesFinder {
             }
         }
         toDeleteSet.forEach(i -> finalTemplatesList.remove(i.intValue()));
-
 
         toDeleteSet = new TreeSet<>(Comparator.reverseOrder());
         for (int i = 0; i < templatesList.size(); ++i) {
