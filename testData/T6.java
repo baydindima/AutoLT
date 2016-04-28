@@ -1,4 +1,4 @@
-// _ _ = _.filter(_ -> _).map(_ -> _).filter(_ -> _).collect(Collectors._());
+// _ = _.filter(_ -> _).map(_ -> _).filter(_ -> _).collect(Collectors._());
 
 import java.util.LinkedList;
 import java.util.List;
