@@ -12,15 +12,25 @@ public class T22 {
 
     static {
         list.stream().filter(s -> !s.isEmpty()).forEach(StringOps::O0);
+        list.parallelStream().filter(s -> !s.isEmpty()).forEach(StringOps::O0);
         list.stream().filter(s -> !s.isEmpty()).forEach(StringOps::O1);
+        list.stream().filter(s -> s.isEmpty()).forEach(StringOps::O1);
         list.stream().filter(s -> !s.isEmpty()).forEach(StringOps::O2);
         list.stream().filter(s -> !s.isEmpty()).forEach(StringOps::O3);
         list.stream().filter(s -> !s.isEmpty()).forEach(StringOps::O4);
         strings.stream().filter(str -> !str.isEmpty()).forEach(StringOps::O5);
+        strings.stream().filter(str -> !str.isEmpty()).forEach(System.out::println);
         strings.stream().filter(str -> !str.isEmpty()).forEach(StringOps::O6);
+        strings.stream().map(str -> str).forEach(StringOps::O6);
         strings.stream().filter(str -> !str.isEmpty()).forEach(StringOps::O7);
         strings.stream().filter(str -> !str.isEmpty()).forEach(StringOps::O8);
         strings.stream().filter(str -> !str.isEmpty()).forEach(StringOps::O9);
+        strings.stream().filter(str -> {
+            if (str.isEmpty())
+                return false;
+            else
+                return true;
+        }).forEach(StringOps::O9);
     }
 }
 
@@ -35,4 +45,9 @@ class StringOps {
     static void O7(String s) {}
     static void O8(String s) {}
     static void O9(String s) {}
+    void O(String s) {}
+    static void OO(String str) {}
+    static void OOO(String s) { System.out.println(s); }
+    static String OOOO(String s) { return s; }
+    static void OOOOO(int s) {}
 }

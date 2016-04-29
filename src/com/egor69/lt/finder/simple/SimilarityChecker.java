@@ -75,7 +75,7 @@ public class SimilarityChecker {
                 for (int i = 0; i < childrenTrees.size(); ++i) {
                     childrenTrees.get(i).add(astNodeChildren[i]);
                 }
-            } else {
+            } /*else {
                 int[][] lcs = new int[childrenTrees.size() + 1][astNodeChildren.length + 1];
                 Direction[][] lcsDirs = new Direction[childrenTrees.size() + 1][astNodeChildren.length + 1];
                 for (int i = 0; i < childrenTrees.size(); ++i) {
@@ -111,7 +111,7 @@ public class SimilarityChecker {
                             break;
                     }
                 }
-            }
+            }*/
         }
 
         private void incrementMatches() {

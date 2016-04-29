@@ -52,8 +52,38 @@ public class SimpleTemplatesFinderTest extends LightCodeInsightFixtureTestCase {
         );
     }
 
+    public void test1WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T1n");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "for (int _ = _; _ < _; ++_) { " +
+                        "int sq = _ * _; " +
+                        "System.out.println(sq); " +
+                        "}"
+        );
+    }
+
     public void test2() throws Exception {
         List<PsiFile> psiFiles = getPsiFiles("T2");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "while (System.currentTimeMillis() < _) { " +
+                        "SimpleDateFormat _ = new SimpleDateFormat(_); " +
+                        "System.out.println(_.format(System.currentTimeMillis())); " +
+                        "}"
+        );
+    }
+
+    public void test2WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T2n");
         Parameters parameters = new Parameters();
         List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
         assertEquals(1, templatesList.size());
@@ -97,8 +127,37 @@ public class SimpleTemplatesFinderTest extends LightCodeInsightFixtureTestCase {
         );
     }
 
+    public void test4WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T4n");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "Rectangle _ = new Rectangle(0, 0, _, _);"
+        );
+    }
+
     public void test5() throws Exception {
         List<PsiFile> psiFiles = getPsiFiles("T5");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "new Thread(new Runnable() { " +
+                        "@Override " +
+                        "public void run() { " +
+                        "f(_); " +
+                        "} " +
+                        "}).start();"
+        );
+    }
+
+    public void test5WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T5n");
         Parameters parameters = new Parameters();
         List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
         assertEquals(1, templatesList.size());
@@ -122,7 +181,11 @@ public class SimpleTemplatesFinderTest extends LightCodeInsightFixtureTestCase {
         List<String> bodiesList = getBodies(templatesList);
         assertContainsElements(
                 bodiesList,
-                "_ = _.filter(_ -> _).map(_ -> _).filter(_ -> _).collect(Collectors._());"
+                "_ = _ " +
+                ".filter(_ -> _) " +
+                        ".map(_ -> _) " +
+                        ".filter(_ -> _) " +
+                        ".collect(Collectors._());"
         );
     }
 
@@ -213,8 +276,32 @@ public class SimpleTemplatesFinderTest extends LightCodeInsightFixtureTestCase {
         );
     }
 
+    public void test11WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T11n");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "Calendar _ = new Calendar.Builder().setLocale(Locale._).setDate(_, _, _).setTimeOfDay(_, _, _).build();"
+        );
+    }
+
     public void test12() throws Exception {
         List<PsiFile> psiFiles = getPsiFiles("T12");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "int _ = (_) ? _ : 0;"
+        );
+    }
+
+    public void test12WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T12n");
         Parameters parameters = new Parameters();
         List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
         assertEquals(1, templatesList.size());
@@ -241,6 +328,22 @@ public class SimpleTemplatesFinderTest extends LightCodeInsightFixtureTestCase {
         );
     }
 
+    public void test13WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T13n");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "do { " +
+                        "Random random = new Random(); " +
+                        "int _ = random.nextInt() * _; " +
+                        "System.out.println(_); " +
+                        "} while (_.test(_));"
+        );
+    }
+
     public void test14() throws Exception {
         List<PsiFile> psiFiles = getPsiFiles("T14");
         Parameters parameters = new Parameters();
@@ -253,8 +356,32 @@ public class SimpleTemplatesFinderTest extends LightCodeInsightFixtureTestCase {
         );
     }
 
+    public void test14WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T14n");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "BiFunction<Integer, Integer, Integer> _ = (i1, i2) -> (_) ? _ : _;"
+        );
+    }
+
     public void test15() throws Exception {
         List<PsiFile> psiFiles = getPsiFiles("T15");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "for (int i = 0; i < _; i++) _(i);"
+        );
+    }
+
+    public void test15WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T15n");
         Parameters parameters = new Parameters();
         List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
         assertEquals(1, templatesList.size());
@@ -289,18 +416,47 @@ public class SimpleTemplatesFinderTest extends LightCodeInsightFixtureTestCase {
         );
     }
 
-    public void test18() throws Exception {
-        List<PsiFile> psiFiles = getPsiFiles("T18");
+    public void test17WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T17n");
         Parameters parameters = new Parameters();
         List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
         assertEquals(1, templatesList.size());
         List<String> bodiesList = getBodies(templatesList);
         assertContainsElements(
                 bodiesList,
+                "int _ = ((1 + 2 * (_ + 1)) * (35 * _ - 18 * (2 * _ + 690) - 49) + 24) * 69 + 34;"
+        );
+    }
+
+    public void test18() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T18");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(2, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
                 "static { " +
                         "_ = new HashMap<>(); " +
                         "_.put(\"default\", 0); " +
-                        "}"
+                        "}",
+                "static Map<String, Integer> _;"
+        );
+    }
+
+    public void test18WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T18n");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(2, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "static { " +
+                        "_ = new HashMap<>(); " +
+                        "_.put(\"default\", 0); " +
+                        "}",
+                "static Map<String, Integer> _;"
         );
     }
 
@@ -355,16 +511,42 @@ public class SimpleTemplatesFinderTest extends LightCodeInsightFixtureTestCase {
         List<PsiFile> psiFiles = getPsiFiles("T22");
         Parameters parameters = new Parameters();
         List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
-        assertEquals(1, templatesList.size());
+        assertEquals(2, templatesList.size());
         List<String> bodiesList = getBodies(templatesList);
         assertContainsElements(
                 bodiesList,
-                "_.stream().filter(_ -> !_.isEmpty()).forEach(StringOps::_);"
+                "_.stream().filter(_ -> !_.isEmpty()).forEach(StringOps::_);",
+                "static void _(String s) {}"
+        );
+    }
+
+    public void test22WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T22n");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(2, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "_.stream().filter(_ -> !_.isEmpty()).forEach(StringOps::_);",
+                "static void _(String s) {}"
         );
     }
 
     public void test23() throws Exception {
         List<PsiFile> psiFiles = getPsiFiles("T23");
+        Parameters parameters = new Parameters();
+        List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
+        assertEquals(1, templatesList.size());
+        List<String> bodiesList = getBodies(templatesList);
+        assertContainsElements(
+                bodiesList,
+                "Map<String, _> _ = new HashMap<>(69, .69f);"
+        );
+    }
+
+    public void test23WithNoise() throws Exception {
+        List<PsiFile> psiFiles = getPsiFiles("T23n");
         Parameters parameters = new Parameters();
         List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
         assertEquals(1, templatesList.size());
