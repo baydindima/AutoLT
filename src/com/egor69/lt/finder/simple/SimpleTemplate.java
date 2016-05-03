@@ -1,5 +1,7 @@
 package com.egor69.lt.finder.simple;
 
+import com.egor69.lt.util.ListOps;
+import com.egor69.lt.util.StringOps;
 import com.intellij.psi.tree.IElementType;
 
 import java.util.LinkedList;
@@ -14,7 +16,7 @@ public class SimpleTemplate {
     public SimpleTemplate(int occurrencesNumber, SimilarityChecker.SimilarityTree similarityTree) {
         this.occurrencesNumber = occurrencesNumber;
         tree = createTree(similarityTree);
-        body = tree.getBody().replaceAll("_(\\s|_)*_", "_");
+        body = StringOps.removeInsipidSequences(tree.getBody());
     }
 
     public int getOccurrencesNumber() {
@@ -42,7 +44,10 @@ public class SimpleTemplate {
     }
 
     public List<String> textNodes() {
-        return tree.getTextNodes();
+        List<String> textNodes = tree.getTextNodes();
+        textNodes = ListOps.removeInsipidSequences(textNodes);
+        textNodes = textNodes.stream().filter(s -> !s.matches("_|\\s+")).collect(Collectors.toList());
+        return textNodes;
     }
 
     private SimpleTemplateTree createTree(SimilarityChecker.SimilarityTree similarityTree) {
@@ -98,7 +103,9 @@ public class SimpleTemplate {
 
         @Override
         public List<String> getTextNodes() {
-            return new LinkedList<>();
+            List<String> result = new LinkedList<>();
+            result.add(body);
+            return result;
         }
     }
 
@@ -177,7 +184,7 @@ public class SimpleTemplate {
         @Override
         public List<String> getTextNodes() {
             List<String> result = new LinkedList<>();
-            if (!body.matches("\\s*")) result.add(body);
+            result.add(body);
             return result;
         }
     }

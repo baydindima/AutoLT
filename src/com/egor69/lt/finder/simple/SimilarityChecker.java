@@ -38,7 +38,7 @@ public class SimilarityChecker {
 
         public SimilarityTree(ASTNode astNode) {
             //astNodeT = astNode;
-            nodeText = astNode.getText();
+            nodeText = astNode.getText().replaceAll(" +", " ");
             matches = 0;
             elementType = astNode.getElementType();
             //textVariants = new HashMap<>();
@@ -65,7 +65,8 @@ public class SimilarityChecker {
 
         public void add(ASTNode astNode) {
             String astNodeText = astNode.getText();
-            if (nodeText.equals(astNodeText)) {
+            if (elementType.equals(astNode.getElementType())
+                    && nodeText.equals(astNodeText.replaceAll(" +", " "))) {
                 incrementMatches();
                 return;
             }
@@ -80,7 +81,7 @@ public class SimilarityChecker {
                 Direction[][] lcsDirs = new Direction[childrenTrees.size() + 1][astNodeChildren.length + 1];
                 for (int i = 0; i < childrenTrees.size(); ++i) {
                     for (int j = 0; j < astNodeChildren.length; ++j) {
-                        if (childrenTrees.get(i).nodeText.equals(astNodeChildren[j].getText())) {
+                        if (childrenTrees.get(i).nodeText.equals(astNodeChildren[j].getText().replaceAll(" +", " "))) {
                             lcs[i + 1][j + 1] = lcs[i][j] + 1;
                             lcsDirs[i + 1][j + 1] = Direction.NW;
                         } else {
