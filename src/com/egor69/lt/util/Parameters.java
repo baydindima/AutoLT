@@ -7,11 +7,12 @@ import java.util.Map;
 
 public class Parameters {
     public enum Name {
-        DEPTH_MINIMUM,
-        MATCHES_PERCENTAGE_MINIMUM,
         MATCHES_MINIMUM,
         LENGTH_MINIMUM,
+        LENGTH_MAXIMUM,
+        DEPTH_MINIMUM,
         NODES_MINIMUM,
+        PLACEHOLDERS_MAXIMUM,
         PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM,
         PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM
     }
@@ -21,10 +22,11 @@ public class Parameters {
     static {
         TEXT_MAP = new HashMap<>();
         TEXT_MAP.put(Name.DEPTH_MINIMUM, "Depth Minimum");
-        TEXT_MAP.put(Name.MATCHES_PERCENTAGE_MINIMUM, "Matches Percentage Minimum");
+        TEXT_MAP.put(Name.LENGTH_MAXIMUM, "Length Maximum");
         TEXT_MAP.put(Name.MATCHES_MINIMUM, "Matches Minimum");
         TEXT_MAP.put(Name.LENGTH_MINIMUM, "Length Minimum");
         TEXT_MAP.put(Name.NODES_MINIMUM, "Nodes Minimum");
+        TEXT_MAP.put(Name.PLACEHOLDERS_MAXIMUM, "Placeholders Maximum");
         TEXT_MAP.put(Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM, "Placeholders Length Percentage Maximum");
         TEXT_MAP.put(Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM, "Placeholder Nodes Percentage Maximum");
     }
@@ -37,11 +39,12 @@ public class Parameters {
 
     static {
         BOUNDS_MAP = new HashMap<>();
-        BOUNDS_MAP.put(Name.DEPTH_MINIMUM, Pair.create(3, 10));
-        BOUNDS_MAP.put(Name.MATCHES_PERCENTAGE_MINIMUM, Pair.create(0, 100));
-        BOUNDS_MAP.put(Name.MATCHES_MINIMUM, Pair.create(1, 100));
-        BOUNDS_MAP.put(Name.LENGTH_MINIMUM, Pair.create(1, 200));
-        BOUNDS_MAP.put(Name.NODES_MINIMUM, Pair.create(1, 50));
+        BOUNDS_MAP.put(Name.DEPTH_MINIMUM, Pair.create(4, 10));
+        BOUNDS_MAP.put(Name.LENGTH_MAXIMUM, Pair.create(1000, 2000));
+        BOUNDS_MAP.put(Name.MATCHES_MINIMUM, Pair.create(2, 100));
+        BOUNDS_MAP.put(Name.LENGTH_MINIMUM, Pair.create(4, 200));
+        BOUNDS_MAP.put(Name.NODES_MINIMUM, Pair.create(5, 50));
+        BOUNDS_MAP.put(Name.PLACEHOLDERS_MAXIMUM, Pair.create(1, 10));
         BOUNDS_MAP.put(Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM, Pair.create(0, 100));
         BOUNDS_MAP.put(Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM, Pair.create(0, 100));
     }
@@ -55,12 +58,13 @@ public class Parameters {
     static {
         DEFAULT_MAP = new HashMap<>();
         DEFAULT_MAP.put(Name.DEPTH_MINIMUM, 5);
-        DEFAULT_MAP.put(Name.MATCHES_PERCENTAGE_MINIMUM, 10);
+        DEFAULT_MAP.put(Name.LENGTH_MAXIMUM, 1488);
         DEFAULT_MAP.put(Name.MATCHES_MINIMUM, 10);
-        DEFAULT_MAP.put(Name.LENGTH_MINIMUM, 20);
-        DEFAULT_MAP.put(Name.NODES_MINIMUM, 5);
-        DEFAULT_MAP.put(Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM, 30);
-        DEFAULT_MAP.put(Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM, 50);
+        DEFAULT_MAP.put(Name.LENGTH_MINIMUM, 34);
+        DEFAULT_MAP.put(Name.NODES_MINIMUM, 8);
+        DEFAULT_MAP.put(Name.PLACEHOLDERS_MAXIMUM, 3);
+        DEFAULT_MAP.put(Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM, 20);
+        DEFAULT_MAP.put(Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM, 30);
     }
 
     public static int getDefault(Name name) {

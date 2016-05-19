@@ -1,10 +1,10 @@
 package com.egor69.lt;
 
+import com.egor69.lt.finder.Template;
+import com.egor69.lt.finder.tree.TreeTemplatesFinder;
 import com.egor69.lt.util.Parameters;
-import com.egor69.lt.finder.simple.SimpleTemplate;
-import com.egor69.lt.finder.simple.SimpleTemplatesFinder;
 import com.egor69.lt.ui.ParametersDialog;
-import com.egor69.lt.ui.TemplatesDialog;
+import com.egor69.lt.ui.ResultsDialog;
 import com.egor69.lt.util.Recursive;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
@@ -46,8 +46,8 @@ public class TemplatesFindAction extends AnAction {
 
         Parameters parameters = ParametersDialog.showDialogAndGetParameters(project);
         if (parameters != null) {
-            List<SimpleTemplate> templatesList = new SimpleTemplatesFinder(psiFiles, parameters).analyze();
-            TemplatesDialog.showDialog(project, templatesList);
+            List <Template> templates = new TreeTemplatesFinder(psiFiles, parameters).analyze();
+            ResultsDialog.showDialog(project, templates);
         }
     }
 

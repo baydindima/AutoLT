@@ -1,6 +1,5 @@
 package com.egor69.lt.finder.simple;
 
-import com.egor69.lt.util.Direction;
 import com.intellij.lang.ASTNode;
 import com.intellij.psi.tree.IElementType;
 

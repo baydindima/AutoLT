@@ -5,7 +5,6 @@ import com.egor69.lt.util.ListOps;
 import com.egor69.lt.util.Parameters;
 
 import static com.egor69.lt.util.Parameters.Name.DEPTH_MINIMUM;
-import static com.egor69.lt.util.Parameters.Name.MATCHES_PERCENTAGE_MINIMUM;
 import static com.egor69.lt.util.Parameters.Name.MATCHES_MINIMUM;
 import static com.egor69.lt.util.Parameters.Name.LENGTH_MINIMUM;
 import static com.egor69.lt.util.Parameters.Name.NODES_MINIMUM;
@@ -27,7 +26,6 @@ import java.util.stream.Stream;
 public class SimpleTemplatesFinder {
     private List<PsiFile> psiFiles;
     private int depthMinimum;
-    private double matchesPercentageMinimum;
     private int matchesMinimum;
     private int lengthMinimum;
     private int nodesMinimum;
@@ -37,7 +35,6 @@ public class SimpleTemplatesFinder {
     public SimpleTemplatesFinder(List<PsiFile> psiFiles, Parameters parameters) {
         this.psiFiles = psiFiles;
         depthMinimum = parameters.getParameter(DEPTH_MINIMUM);
-        matchesPercentageMinimum = 0.01 * parameters.getParameter(MATCHES_PERCENTAGE_MINIMUM);
         matchesMinimum = parameters.getParameter(MATCHES_MINIMUM);
         lengthMinimum = parameters.getParameter(LENGTH_MINIMUM);
         nodesMinimum = parameters.getParameter(NODES_MINIMUM);
@@ -85,7 +82,7 @@ public class SimpleTemplatesFinder {
 
         Set<SimpleTemplate> templatesSet = new HashSet<>();
         checkersMap.forEach((elementType, similarityCheckers) -> {
-            int matchesBound = Math.max((int) (matchesPercentageMinimum * similarityCheckers.size()), matchesMinimum);
+            int matchesBound = Math.max((int) (0.1 * similarityCheckers.size()), matchesMinimum);
             similarityCheckers.forEach(similarityChecker -> {
                 SimpleTemplate template = similarityChecker.getTemplate(matchesBound);
                 if (template != null) templatesSet.add(template);
