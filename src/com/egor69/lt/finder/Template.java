@@ -1,16 +1,24 @@
 package com.egor69.lt.finder;
 
+import com.intellij.openapi.fileTypes.FileType;
+import com.intellij.openapi.fileTypes.FileTypes;
+
 import java.util.List;
 
 public class Template {
     private String body;
     private int occurrences;
     private List<String> tokens;
+    private FileType fileType = FileTypes.UNKNOWN;
 
     public Template(String body, int occurrences, List<String> tokens) {
         this.body = body;
         this.occurrences = occurrences;
         this.tokens = tokens;
+    }
+
+    public void setFileType(FileType fileType) {
+        this.fileType = fileType;
     }
 
     public String getBody() {
@@ -23,6 +31,10 @@ public class Template {
 
     public List<String> getTokens() {
         return tokens;
+    }
+
+    public FileType getFileType() {
+        return fileType;
     }
 
     @Override

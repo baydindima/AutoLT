@@ -1,7 +1,8 @@
 package com.egor69.lt.ui;
 
 import com.egor69.lt.finder.Template;
-import com.intellij.ide.highlighter.JavaFileType;
+import com.intellij.openapi.editor.EditorFactory;
+import com.intellij.openapi.fileTypes.FileTypes;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.ui.EditorTextField;
@@ -45,6 +46,7 @@ public class TemplatesDialog extends DialogWrapper {
         nextButton.setEnabled(currentIndex != templates.size() - 1);
         numberLabel.setText(currentIndex + 1 + "/" + templates.size());
         occurrencesLabel.setText(templates.get(currentIndex).getOccurrences() + " occurrences");
+        textField.setFileType(templates.get(currentIndex).getFileType());
         textField.setText(templates.get(currentIndex).getBody());
     }
 
@@ -57,10 +59,10 @@ public class TemplatesDialog extends DialogWrapper {
     @Override
     protected JComponent createCenterPanel() {
         JPanel jPanel = new JBPanel<>(new BorderLayout());
-        jPanel.setMinimumSize(new Dimension(700, 450));
+        jPanel.setMinimumSize(new Dimension(750, 450));
 
         JPanel leftPanel = new JBPanel<>(new HorizontalLayout(0, SwingConstants.CENTER));
-        prevButton = new JButton("Prev");
+        prevButton = new JButton(new ImageIcon(getClass().getClassLoader().getResource("png/arrow_left.png")));
         prevButton.addActionListener(e -> {
             --currentIndex;
             refreshComponents();
@@ -69,7 +71,7 @@ public class TemplatesDialog extends DialogWrapper {
         jPanel.add(leftPanel, BorderLayout.WEST);
 
         JPanel rightPanel = new JBPanel<>(new HorizontalLayout(0, SwingConstants.CENTER));
-        nextButton = new JButton("Next");
+        nextButton = new JButton(new ImageIcon(getClass().getClassLoader().getResource("png/arrow_right.png")));
         nextButton.addActionListener(e -> {
             ++currentIndex;
             refreshComponents();
@@ -124,7 +126,7 @@ public class TemplatesDialog extends DialogWrapper {
         bottomPanel.add(addButton, constraints);
         centerPanel.add(bottomPanel, BorderLayout.SOUTH);
 
-        textField = new EditorTextField("", project, JavaFileType.INSTANCE);
+        textField = new EditorTextField(EditorFactory.getInstance().createDocument(""), project, FileTypes.UNKNOWN, false, false);
         centerPanel.add(textField, BorderLayout.CENTER);
 
         jPanel.add(centerPanel, BorderLayout.CENTER);

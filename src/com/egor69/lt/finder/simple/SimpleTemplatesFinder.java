@@ -4,12 +4,7 @@ import com.egor69.lt.util.FilterSet;
 import com.egor69.lt.util.ListOps;
 import com.egor69.lt.util.Parameters;
 
-import static com.egor69.lt.util.Parameters.Name.DEPTH_MINIMUM;
-import static com.egor69.lt.util.Parameters.Name.MATCHES_MINIMUM;
-import static com.egor69.lt.util.Parameters.Name.LENGTH_MINIMUM;
-import static com.egor69.lt.util.Parameters.Name.NODES_MINIMUM;
-import static com.egor69.lt.util.Parameters.Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM;
-import static com.egor69.lt.util.Parameters.Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM;
+import static com.egor69.lt.util.Parameters.Name.*;
 import static com.egor69.lt.util.ASTNodeOps.*;
 
 import com.intellij.lang.ASTNode;
@@ -29,8 +24,6 @@ public class SimpleTemplatesFinder {
     private int matchesMinimum;
     private int lengthMinimum;
     private int nodesMinimum;
-    private double placeholdersLengthPercentageMaximum;
-    private double placeholderNodesPercentageMaximum;
 
     public SimpleTemplatesFinder(List<PsiFile> psiFiles, Parameters parameters) {
         this.psiFiles = psiFiles;
@@ -38,8 +31,6 @@ public class SimpleTemplatesFinder {
         matchesMinimum = parameters.getParameter(MATCHES_MINIMUM);
         lengthMinimum = parameters.getParameter(LENGTH_MINIMUM);
         nodesMinimum = parameters.getParameter(NODES_MINIMUM);
-        placeholdersLengthPercentageMaximum = 0.01 * parameters.getParameter(PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM);
-        placeholderNodesPercentageMaximum = 0.01 * parameters.getParameter(PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM);
     }
 
     public List<SimpleTemplate> analyze() {
@@ -93,11 +84,11 @@ public class SimpleTemplatesFinder {
         simpleTemplateFilterSet.add(
                 simpleTemplate -> simpleTemplate.getBody().length() >= lengthMinimum,
                 simpleTemplate -> StringUtils.countMatches(simpleTemplate.getBody(), "_")
-                        <= (int) (placeholdersLengthPercentageMaximum * simpleTemplate.getBody().replaceAll("\\s+", "").length()),
+                        <= (int) (0.3 * simpleTemplate.getBody().replaceAll("\\s+", "").length()),
                 simpleTemplate -> simpleTemplate.nodes() >= nodesMinimum,
                 simpleTemplate -> simpleTemplate.depth() >= depthMinimum,
                 simpleTemplate -> simpleTemplate.placeholderNodes()
-                        <= (int) (placeholderNodesPercentageMaximum * simpleTemplate.nodes())
+                        <= (int) (0.2 * simpleTemplate.nodes())
         );
 
         List<SimpleTemplate> templatesList = simpleTemplateFilterSet.filter(templatesSet).collect(Collectors.toList());

@@ -5,6 +5,7 @@ import com.egor69.lt.util.ListOps;
 import com.egor69.lt.util.Parameters;
 import com.egor69.lt.util.Recursive;
 import com.intellij.lang.ASTNode;
+import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import org.apache.commons.lang.StringUtils;
@@ -24,6 +25,7 @@ public class TreeTemplatesFinder {
     private int depthMinimum;
     private int matchesMinimum;
     private int placeholdersMaximum;
+    private int templatesToShow;
 
     public TreeTemplatesFinder(List<PsiFile> psiFiles, Parameters parameters) {
         this.psiFiles = psiFiles;
@@ -33,6 +35,7 @@ public class TreeTemplatesFinder {
         depthMinimum = parameters.getParameter(DEPTH_MINIMUM);
         matchesMinimum = parameters.getParameter(MATCHES_MINIMUM);
         placeholdersMaximum = parameters.getParameter(PLACEHOLDERS_MAXIMUM);
+        templatesToShow = parameters.getParameter(TEMPLATES_TO_SHOW);
     }
 
     public List<Template> analyze() {
@@ -61,6 +64,8 @@ public class TreeTemplatesFinder {
 
         Set<Template> templates = new HashSet<>();
 
+        final FileType[] currentFileType = {null};
+
         Predicate<Template> templatePredicate = template -> template.getOccurrences() != Integer.MAX_VALUE &&
                 template.getBody().length() >= lengthMinimum &&
                 template.getTokens().size() >= nodesMinimum &&
@@ -73,6 +78,7 @@ public class TreeTemplatesFinder {
             } else if (possibleTemplatePredicate.test(node)) {
                 Template template = similarityTree.getTemplate(node, matchesMinimum);
                 if (templatePredicate.test(template)) {
+                    template.setFileType(currentFileType[0]);
                     templates.add(template);
                 } else {
                     for (ASTNode child : node.getChildren(null)) recursiveGetConsumer.function.accept(child);
@@ -82,6 +88,7 @@ public class TreeTemplatesFinder {
 
         final double[] j = {0};
         psiFiles.forEach(psiFile -> {
+            currentFileType[0] = psiFile.getFileType();
             for (PsiElement element : psiFile.getChildren()) recursiveGetConsumer.function.accept(element.getNode());
             if (++j[0] % 10 == 0) System.out.println("Get: " + j[0] / psiFiles.size());
         });
@@ -98,6 +105,10 @@ public class TreeTemplatesFinder {
             }
         }
         toDeleteSet.forEach(idx -> templatesList.remove(idx.intValue()));
+
+        if (templatesList.size() > templatesToShow) {
+            //TODO: only <TEMPLATES_TO_SHOW> templates
+        }
 
         return templatesList;
     }

@@ -13,8 +13,7 @@ public class Parameters {
         DEPTH_MINIMUM,
         NODES_MINIMUM,
         PLACEHOLDERS_MAXIMUM,
-        PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM,
-        PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM
+        TEMPLATES_TO_SHOW
     }
 
     private static final Map<Name, String> TEXT_MAP;
@@ -27,8 +26,7 @@ public class Parameters {
         TEXT_MAP.put(Name.LENGTH_MINIMUM, "Length Minimum");
         TEXT_MAP.put(Name.NODES_MINIMUM, "Nodes Minimum");
         TEXT_MAP.put(Name.PLACEHOLDERS_MAXIMUM, "Placeholders Maximum");
-        TEXT_MAP.put(Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM, "Placeholders Length Percentage Maximum");
-        TEXT_MAP.put(Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM, "Placeholder Nodes Percentage Maximum");
+        TEXT_MAP.put(Name.TEMPLATES_TO_SHOW, "Templates to Show");
     }
 
     public static String getText(Name name) {
@@ -45,8 +43,7 @@ public class Parameters {
         BOUNDS_MAP.put(Name.LENGTH_MINIMUM, Pair.create(4, 200));
         BOUNDS_MAP.put(Name.NODES_MINIMUM, Pair.create(5, 50));
         BOUNDS_MAP.put(Name.PLACEHOLDERS_MAXIMUM, Pair.create(1, 10));
-        BOUNDS_MAP.put(Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM, Pair.create(0, 100));
-        BOUNDS_MAP.put(Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM, Pair.create(0, 100));
+        BOUNDS_MAP.put(Name.TEMPLATES_TO_SHOW, Pair.create(0, 100));
     }
 
     public static Pair<Integer, Integer> getBounds(Name name) {
@@ -63,8 +60,7 @@ public class Parameters {
         DEFAULT_MAP.put(Name.LENGTH_MINIMUM, 34);
         DEFAULT_MAP.put(Name.NODES_MINIMUM, 8);
         DEFAULT_MAP.put(Name.PLACEHOLDERS_MAXIMUM, 3);
-        DEFAULT_MAP.put(Name.PLACEHOLDERS_LENGTH_PERCENTAGE_MAXIMUM, 20);
-        DEFAULT_MAP.put(Name.PLACEHOLDER_NODES_PERCENTAGE_MAXIMUM, 30);
+        DEFAULT_MAP.put(Name.TEMPLATES_TO_SHOW, 30);
     }
 
     public static int getDefault(Name name) {
