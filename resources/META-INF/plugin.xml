@@ -18,7 +18,7 @@
   <extensions defaultExtensionNs="com.intellij"/>
 
   <actions>
-    <action id="TemplatesFinder.ID" class="com.egor69.lt.TemplatesFindAction" text="Find Templates"
+    <action id="TemplatesFinder.ID" class="ru.egor69.lt.TemplatesFindAction" text="Find Templates"
             description="Find templates in project">
       <add-to-group group-id="AnalyzeActions" anchor="last"/>
       <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt MULTIPLY"/>
