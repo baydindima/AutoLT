@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="508b8e65-59ce-4cdf-aad0-4577b5d5441a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/ui/ResultsDialog.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/SimilarityTree.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/SimilarityTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/util/TemplateOps.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/util/TemplateOps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/ui/TemplatesDialog.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/ui/TemplatesDialog.java" />
     </list>
     <ignored path="AutoLT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,143 +27,7 @@
     <favorites_list name="AutoLT" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TemplatesDialog.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/TemplatesDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.03655914">
-              <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimilarityTree.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/SimilarityTree.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="71" column="13" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeTemplatesFinder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/TreeTemplatesFinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TemplateImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/lang-impl/src/com/intellij/codeInsight/template/impl/TemplateImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="451" column="35" selection-start-line="451" selection-start-column="35" selection-end-line="451" selection-end-column="35" />
-              <folding>
-                <element signature="e#0#13713#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#3782#3783#0" expanded="false" />
-                <element signature="e#3809#3810#0" expanded="false" />
-                <element signature="e#3905#3906#0" expanded="false" />
-                <element signature="e#3936#3937#0" expanded="false" />
-                <element signature="e#4549#4550#0" expanded="false" />
-                <element signature="e#4617#4618#0" expanded="false" />
-                <element signature="e#5903#5904#0" expanded="false" />
-                <element signature="e#5924#5925#0" expanded="false" />
-                <element signature="e#7179#7180#0" expanded="false" />
-                <element signature="e#7208#7209#0" expanded="false" />
-                <element signature="e#7271#7272#0" expanded="false" />
-                <element signature="e#7306#7307#0" expanded="false" />
-                <element signature="e#7365#7366#0" expanded="false" />
-                <element signature="e#7396#7397#0" expanded="false" />
-                <element signature="e#7429#7430#0" expanded="false" />
-                <element signature="e#7456#7457#0" expanded="false" />
-                <element signature="e#7511#7512#0" expanded="false" />
-                <element signature="e#7548#7549#0" expanded="false" />
-                <element signature="e#7627#7628#0" expanded="false" />
-                <element signature="e#7678#7679#0" expanded="false" />
-                <element signature="e#7733#7734#0" expanded="false" />
-                <element signature="e#7777#7778#0" expanded="false" />
-                <element signature="e#7813#7814#0" expanded="false" />
-                <element signature="e#7843#7844#0" expanded="false" />
-                <element signature="e#7892#7893#0" expanded="false" />
-                <element signature="e#7926#7927#0" expanded="false" />
-                <element signature="e#7964#7965#0" expanded="false" />
-                <element signature="e#8010#8011#0" expanded="false" />
-                <element signature="e#8059#8060#0" expanded="false" />
-                <element signature="e#8117#8118#0" expanded="false" />
-                <element signature="e#8164#8165#0" expanded="false" />
-                <element signature="e#8220#8221#0" expanded="false" />
-                <element signature="e#10404#10405#0" expanded="false" />
-                <element signature="e#10435#10436#0" expanded="false" />
-                <element signature="e#10470#10471#0" expanded="false" />
-                <element signature="e#10505#10506#0" expanded="false" />
-                <element signature="e#10549#10550#0" expanded="false" />
-                <element signature="e#10594#10595#0" expanded="false" />
-                <element signature="e#10642#10643#0" expanded="false" />
-                <element signature="e#10699#10700#0" expanded="false" />
-                <element signature="e#10745#10746#0" expanded="false" />
-                <element signature="e#10796#10797#0" expanded="false" />
-                <element signature="e#10846#10847#0" expanded="false" />
-                <element signature="e#10905#10906#0" expanded="false" />
-                <element signature="e#10953#10954#0" expanded="false" />
-                <element signature="e#11016#11017#0" expanded="false" />
-                <element signature="e#11058#11059#0" expanded="false" />
-                <element signature="e#11110#11111#0" expanded="false" />
-                <element signature="e#11150#11151#0" expanded="false" />
-                <element signature="e#11172#11173#0" expanded="false" />
-                <element signature="e#11208#11209#0" expanded="false" />
-                <element signature="e#11229#11230#0" expanded="false" />
-                <element signature="e#11348#11349#0" expanded="false" />
-                <element signature="e#11375#11376#0" expanded="false" />
-                <element signature="e#11423#11424#0" expanded="false" />
-                <element signature="e#11453#11454#0" expanded="false" />
-                <element signature="e#11505#11506#0" expanded="false" />
-                <element signature="e#11542#11543#0" expanded="false" />
-                <element signature="e#11577#11578#0" expanded="false" />
-                <element signature="e#11608#11609#0" expanded="false" />
-                <element signature="e#11660#11661#0" expanded="false" />
-                <element signature="e#11699#11700#0" expanded="false" />
-                <element signature="e#11733#11734#0" expanded="false" />
-                <element signature="e#11761#11762#0" expanded="false" />
-                <element signature="e#11830#11831#0" expanded="false" />
-                <element signature="e#11863#11864#0" expanded="false" />
-                <element signature="e#12236#12237#0" expanded="false" />
-                <element signature="e#12255#12256#0" expanded="false" />
-                <element signature="e#13201#13202#0" expanded="false" />
-                <element signature="e#13251#13252#0" expanded="false" />
-                <element signature="e#13290#13291#0" expanded="false" />
-                <element signature="e#13339#13340#0" expanded="false" />
-                <element signature="e#13386#13387#0" expanded="false" />
-                <element signature="e#13414#13415#0" expanded="false" />
-                <element signature="e#13668#13669#0" expanded="false" />
-                <element signature="e#13709#13710#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TemplateOps.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/util/TemplateOps.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="28" selection-start-line="9" selection-start-column="28" selection-end-line="9" selection-end-column="28" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -186,8 +51,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/testData/T2.java" />
-        <option value="C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Comparator.java" />
         <option value="$PROJECT_DIR$/testData/Tmtsf.java" />
         <option value="$PROJECT_DIR$/testData/Tstmf2.java" />
         <option value="$PROJECT_DIR$/testData/Tstmf1.java" />
@@ -233,10 +96,12 @@
         <option value="$PROJECT_DIR$/src/com/egor69/lt/util/TemplateOps.java" />
         <option value="$PROJECT_DIR$/src/com/egor69/lt/ui/TemplatesDialog.java" />
         <option value="$PROJECT_DIR$/tests/ru/egor69/lt/util/ListOpsTest.java" />
-        <option value="$PROJECT_DIR$/src/ru/egor69/lt/ui/TemplatesDialog.java" />
         <option value="$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/TreeTemplatesFinder.java" />
         <option value="$PROJECT_DIR$/src/ru/egor69/lt/util/TemplateOps.java" />
         <option value="$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/SimilarityTree.java" />
+        <option value="$PROJECT_DIR$/src/ru/egor69/lt/ui/TemplatesDialog.java" />
+        <option value="$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java" />
+        <option value="$PROJECT_DIR$/src/ru/egor69/lt/ui/NoTemplatesDialog.java" />
       </list>
     </option>
   </component>
@@ -312,116 +177,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="util" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tree" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1073,7 +828,7 @@
       <workItem from="1464268885192" duration="4562000" />
       <workItem from="1464454511579" duration="148000" />
       <workItem from="1464469480326" duration="13660000" />
-      <workItem from="1464629677566" duration="942000" />
+      <workItem from="1464629677566" duration="1974000" />
     </task>
     <servers />
   </component>
@@ -1110,7 +865,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="335613000" />
+    <option name="totallyTimeSpent" value="336645000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1122,8 +877,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1132,10 +887,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19312602" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19312602" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24281392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24281392" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1277,13 +1032,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1333333">
-          <caret line="52" column="36" selection-start-line="52" selection-start-column="36" selection-end-line="52" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/Collections.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.05897436">
@@ -1415,14 +1163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/ResultsDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94168097">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/util/FilterSet.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11663808">
@@ -1517,16 +1257,6 @@
         <state vertical-scroll-proportion="0.33333334">
           <caret line="2221" column="18" selection-start-line="2221" selection-start-column="18" selection-end-line="2221" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/TreeTemplatesFinder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1650,13 +1380,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/TemplatesDialog.java">
+    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/TreeTemplatesFinder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03655914">
-          <caret line="55" column="41" selection-start-line="55" selection-start-column="41" selection-end-line="55" selection-end-column="41" />
+          <caret line="45" column="46" selection-start-line="45" selection-start-column="46" selection-end-line="45" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/TemplatesDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="90" column="55" selection-start-line="89" selection-start-column="8" selection-end-line="90" selection-end-column="55" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/NoTemplatesDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8043011">
+          <caret line="22" column="45" selection-start-line="22" selection-start-column="45" selection-end-line="22" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5612903">
+          <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
+          <folding />
         </state>
       </provider>
     </entry>

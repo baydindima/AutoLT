@@ -2,6 +2,7 @@ package ru.egor69.lt;
 
 import ru.egor69.lt.finder.Template;
 import ru.egor69.lt.finder.tree.TreeTemplatesFinder;
+import ru.egor69.lt.ui.NoTemplatesDialog;
 import ru.egor69.lt.ui.TemplatesDialog;
 import ru.egor69.lt.util.Parameters;
 import ru.egor69.lt.ui.ParametersDialog;
@@ -50,7 +51,7 @@ public class TemplatesFindAction extends AnAction {
             if (templates.size() != 0) {
                 new TemplatesDialog(project, templates).show();
             } else {
-                //TODO: No Templates
+                new NoTemplatesDialog(project).show();
             }
         }
     }

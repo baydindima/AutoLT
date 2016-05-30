@@ -17,6 +17,8 @@ import org.jetbrains.annotations.Nullable;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class TemplatesDialog extends DialogWrapper {
     private static final String EMPTY_STRING = "";
@@ -26,8 +28,10 @@ public class TemplatesDialog extends DialogWrapper {
     private Project project;
     private List<Template> templates;
     private int currentIndex;
+    private Set<Integer> savedTemplates;
     private JButton prevButton;
     private JButton nextButton;
+    private JButton addButton;
     private ErrorLabel errorLabel;
     private JLabel numberLabel;
     private JLabel occurrencesLabel;
@@ -41,6 +45,7 @@ public class TemplatesDialog extends DialogWrapper {
         this.project = project;
         this.templates = templates;
         currentIndex = 0;
+        savedTemplates = new TreeSet<>();
 
         setTitle("Templates in " + project.getName());
         init();
@@ -51,6 +56,7 @@ public class TemplatesDialog extends DialogWrapper {
     private void refreshComponents() {
         prevButton.setEnabled(currentIndex != 0);
         nextButton.setEnabled(currentIndex != templates.size() - 1);
+        addButton.setEnabled(!savedTemplates.contains(currentIndex));
         numberLabel.setText(currentIndex + 1 + "/" + templates.size());
         occurrencesLabel.setText(templates.get(currentIndex).getOccurrences() + " occurrences");
         errorLabel.setText(EMPTY_STRING);
@@ -74,6 +80,7 @@ public class TemplatesDialog extends DialogWrapper {
             return;
         }
         TemplateOps.saveTemplate(template, abbreviation, description);
+        savedTemplates.add(currentIndex);
         refreshComponents();
     }
 
@@ -150,7 +157,7 @@ public class TemplatesDialog extends DialogWrapper {
         constraints.gridx = 3;
         constraints.gridy = 0;
         constraints.weightx = 0.;
-        JButton addButton = new JButton("Add");
+        addButton = new JButton("Add");
         addButton.addActionListener(e -> saveCurrentTemplate());
         bottomPanel.add(addButton, constraints);
         centerPanel.add(bottomPanel, BorderLayout.SOUTH);
