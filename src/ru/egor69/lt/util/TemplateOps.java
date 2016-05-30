@@ -1,6 +1,6 @@
 package ru.egor69.lt.util;
 
-import com.intellij.codeInsight.template.LiveTemplateBuilder;
+import com.intellij.codeInsight.template.TemplateContextType;
 import com.intellij.codeInsight.template.impl.TemplateContext;
 import com.intellij.codeInsight.template.impl.TemplateImpl;
 import com.intellij.codeInsight.template.impl.TemplateSettings;
@@ -20,12 +20,16 @@ public final class TemplateOps {
         templateToSave.setString(builder.toString());
         templateToSave.setDescription(description);
         templateToSave.setToReformat(true);
-        templateToSave.applyContext(new TemplateContext());
+        TemplateContext context = new TemplateContext();
+        for (TemplateContextType contextType : TemplateContextType.EP_NAME.getExtensions()) {
+            context.setEnabled(contextType, true);
+        }
+        templateToSave.applyContext(context);
         templateToSave.parseSegments();
         TemplateSettings.getInstance().addTemplate(templateToSave);
     }
 
     public static boolean isPossibleAbbreviation(String abbreviation) {
-        return true;
+        return TemplateSettings.getInstance().getTemplates(abbreviation).isEmpty();
     }
 }
