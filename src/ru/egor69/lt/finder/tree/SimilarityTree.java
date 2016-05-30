@@ -9,6 +9,8 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class SimilarityTree {
+    private static final String PLACEHOLDER_STRING = "#_#";
+
     private Map<String, Integer> leafValuesOccurrences;
     private Map<Pair<IElementType, Integer>, List<SimilarityTree>> childrenTreesMap;
 
@@ -55,7 +57,7 @@ public class SimilarityTree {
                             :
                             new Template(text, matches, Arrays.asList(text))
                     :
-                    new Template("#_#", Integer.MAX_VALUE, new LinkedList<>());
+                    new Template(PLACEHOLDER_STRING, Integer.MAX_VALUE, new LinkedList<>());
         } else {
             Pair<IElementType, Integer> key = new Pair<>(node.getElementType(), childrenSize);
             List<SimilarityTree> childrenTrees = childrenTreesMap.get(key);
@@ -68,7 +70,7 @@ public class SimilarityTree {
                 occurrences = Integer.min(occurrences, childTemplate.getOccurrences());
                 tokens.addAll(childTemplate.getTokens());
             }
-            return new Template(builder.toString().replaceAll("#_#(#_#|\\s)*#_#", "#_#"), occurrences, tokens);
+            return new Template(builder.toString().replaceAll("#_#(#_#|\\s)*#_#", PLACEHOLDER_STRING), occurrences, tokens);
         }
     }
 }
