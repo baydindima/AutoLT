@@ -1,8 +1,10 @@
 package ru.egor69.lt.util;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -53,6 +55,12 @@ public final class StringOps {
         parts.remove(0);
         parts.remove(0);
         parts.add(0, newPart);
-        return  product(parts);
+        return product(parts);
+    }
+
+    public static Predicate<String> containsAnyPredicate(Collection<String> strings) {
+        Predicate<String> predicate = s -> false;
+        for (String ss : strings) predicate = predicate.or(s -> s.contains(ss));
+        return predicate;
     }
 }

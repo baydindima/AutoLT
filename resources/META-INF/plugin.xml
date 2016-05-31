@@ -1,28 +1,34 @@
 <idea-plugin version="2">
-  <id>com.egor69.lt</id>
-  <name>AutoLT</name>
-  <version>1.0</version>
-  <vendor>Egor69</vendor>
+    <id>ru.egor69.lt</id>
+    <name>AutoLT</name>
+    <version>1.0</version>
+    <vendor>Egor69</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       Auto Live Templates finder
     ]]></description>
 
-  <change-notes><![CDATA[
-      Initial
+    <change-notes><![CDATA[
+
     ]]>
-  </change-notes>
+    </change-notes>
 
-  <idea-version since-build="107.105"/>
+    <idea-version since-build="107.105"/>
 
-  <extensions defaultExtensionNs="com.intellij"/>
+    <extensionPoints>
+        <extensionPoint name="fileTypeTemplateFilter" interface="ru.egor69.lt.extensions.ep.FileTypeTemplateFilter"/>
+    </extensionPoints>
 
-  <actions>
-    <action id="TemplatesFinder.ID" class="ru.egor69.lt.TemplatesFindAction" text="Find Templates"
-            description="Find templates in project">
-      <add-to-group group-id="AnalyzeActions" anchor="last"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt MULTIPLY"/>
-    </action>
-  </actions>
+    <extensions defaultExtensionNs="ru.egor69.lt">
+        <fileTypeTemplateFilter implementation="ru.egor69.lt.extensions.JavaFileTypeTemplateFilter"/>
+    </extensions>
+
+    <actions>
+        <action id="TemplatesFinder.ID" class="ru.egor69.lt.TemplatesFindAction" text="Find Templates"
+                description="Find templates in project">
+            <add-to-group group-id="AnalyzeActions" anchor="last"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift ctrl alt MULTIPLY"/>
+        </action>
+    </actions>
 
 </idea-plugin>

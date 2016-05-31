@@ -1,6 +1,7 @@
 package ru.egor69.lt.ui;
 
 import com.intellij.ui.ErrorLabel;
+import com.intellij.ui.JBColor;
 import ru.egor69.lt.finder.Template;
 import ru.egor69.lt.util.TemplateOps;
 import com.intellij.openapi.editor.EditorFactory;
@@ -73,10 +74,12 @@ public class TemplatesDialog extends DialogWrapper {
         String description = descriptionTextField.getText();
         if (abbreviation.isEmpty()) {
             errorLabel.setText(EMPTY_ABBREVIATION);
+            errorLabel.setErrorText(EMPTY_ABBREVIATION, JBColor.RED);
             return;
         }
         if (!TemplateOps.isPossibleAbbreviation(abbreviation)) {
             errorLabel.setText(USED_ABBREVIATION);
+            errorLabel.setErrorText(USED_ABBREVIATION, JBColor.RED);
             return;
         }
         TemplateOps.saveTemplate(template, abbreviation, description);

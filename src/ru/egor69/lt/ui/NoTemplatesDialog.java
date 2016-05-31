@@ -21,7 +21,7 @@ public class NoTemplatesDialog extends DialogWrapper {
     protected JComponent createCenterPanel() {
         JPanel jPanel = new JBPanel<>(new BorderLayout());
         jPanel.setMinimumSize(new Dimension(300, 100));
-        JLabel jLabel = new JBLabel("No Templates");
+        JBLabel jLabel = new JBLabel("No Templates");
         jLabel.setHorizontalAlignment(SwingConstants.CENTER);
         jPanel.add(jLabel, BorderLayout.CENTER);
         return jPanel;

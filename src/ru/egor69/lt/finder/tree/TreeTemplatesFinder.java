@@ -3,6 +3,7 @@ package ru.egor69.lt.finder.tree;
 import static ru.egor69.lt.util.Parameters.Name.*;
 import static ru.egor69.lt.util.ASTNodeOps.*;
 
+import ru.egor69.lt.extensions.ep.FileTypeTemplateFilter;
 import ru.egor69.lt.finder.Template;
 import ru.egor69.lt.util.ListOps;
 import ru.egor69.lt.util.Parameters;
@@ -12,6 +13,7 @@ import com.intellij.openapi.fileTypes.FileType;
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiFile;
 import org.apache.commons.lang.StringUtils;
+import ru.egor69.lt.util.StringOps;
 
 import java.util.*;
 import java.util.function.Consumer;
@@ -39,18 +41,31 @@ public class TreeTemplatesFinder {
     }
 
     public List<Template> analyze() {
+        FileTypeTemplateFilter[] filters =  FileTypeTemplateFilter.EP_NAME.getExtensions();
+        Predicate<String> defaultPredicate = s -> false;
+        Map<FileType, Predicate<String>> notAnalyzePredicates = new HashMap<>();
+        Map<FileType, Predicate<String>> notShowPredicates = new HashMap<>();
+        for (FileTypeTemplateFilter filter :
+                filters) {
+            notAnalyzePredicates.put(filter.fileType(), StringOps.containsAnyPredicate(filter.keywordsNotAnalyze()));
+            notShowPredicates.put(filter.fileType(), StringOps.containsAnyPredicate(filter.keywordsNotShow()));
+        }
+
         SimilarityTree similarityTree = new SimilarityTree();
 
-        Predicate<ASTNode> possibleTemplatePredicate = node -> node.getTextLength() >= lengthMinimum &&
+        final FileType[] currentFileType = {null};
+
+        Predicate<ASTNode> possibleTemplatePredicate = node ->
+                node.getTextLength() >= lengthMinimum &&
                 nodes(node) >= nodesMinimum &&
-                depth(node) >= depthMinimum &&
-                !(node.getText().contains("package") || node.getText().contains("import") || node.getText().contains("@"));
+                depth(node) >= depthMinimum;
 
         Recursive<Consumer<ASTNode>> recursiveAddConsumer = new Recursive<>();
         recursiveAddConsumer.function = node -> {
             if (node.getTextLength() >= lengthMaximum) {
                 for (ASTNode child : node.getChildren(null)) recursiveAddConsumer.function.accept(child);
-            } else if (possibleTemplatePredicate.test(node)) {
+            } else if (possibleTemplatePredicate.test(node) &&
+                    !notAnalyzePredicates.getOrDefault(currentFileType[0], defaultPredicate).test(node.getText())) {
                 similarityTree.add(node);
                 for (ASTNode child : node.getChildren(null)) recursiveAddConsumer.function.accept(child);
             }
@@ -58,15 +73,15 @@ public class TreeTemplatesFinder {
 
         final double[] i = {0};
         psiFiles.forEach(psiFile -> {
+            currentFileType[0] = psiFile.getFileType();
             for (PsiElement element : psiFile.getChildren()) recursiveAddConsumer.function.accept(element.getNode());
             if (++i[0] % 10 == 0) System.out.println("Add: " + i[0] / psiFiles.size());
         });
 
         Set<Template> templates = new HashSet<>();
 
-        final FileType[] currentFileType = {null};
-
-        Predicate<Template> templatePredicate = template -> template.getOccurrences() != Integer.MAX_VALUE &&
+        Predicate<Template> templatePredicate = template ->
+                template.getOccurrences() != Integer.MAX_VALUE &&
                 template.getBody().length() >= lengthMinimum &&
                 template.getTokens().size() >= nodesMinimum &&
                 StringUtils.countMatches(template.getBody(), "#_#") <= placeholdersMaximum;
@@ -75,9 +90,11 @@ public class TreeTemplatesFinder {
         recursiveGetConsumer.function = node -> {
             if (node.getTextLength() >= lengthMaximum) {
                 for (ASTNode child : node.getChildren(null)) recursiveGetConsumer.function.accept(child);
-            } else if (possibleTemplatePredicate.test(node)) {
+            } else if (possibleTemplatePredicate.test(node) &&
+                    !notAnalyzePredicates.getOrDefault(currentFileType[0], defaultPredicate).test(node.getText())) {
                 Template template = similarityTree.getTemplate(node, matchesMinimum);
-                if (templatePredicate.test(template)) {
+                if (templatePredicate.test(template) &&
+                        !notShowPredicates.getOrDefault(currentFileType[0], defaultPredicate).test(template.getBody())) {
                     template.setFileType(currentFileType[0]);
                     templates.add(template);
                 } else {
