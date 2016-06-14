@@ -64,4 +64,23 @@ public class StringOpsTest {
     public void testRemoveInsipidSequences12() throws Exception {
         Assert.assertEquals("_", StringOps.removeInsipidSequences("_(_()._{})._"));
     }
+
+    @Test
+    public void testIsRightSequence1() throws Exception {
+        Assert.assertTrue(StringOps.isRightCode("(aba)(()cab())a"));
+    }
+    @Test
+    public void testIsRightSequence2() throws Exception {
+        Assert.assertTrue(StringOps.isRightCode("la<{([la])}>la"));
+    }
+
+    @Test
+    public void testIsRightSequence3() throws Exception {
+        Assert.assertFalse(StringOps.isRightCode(")("));
+    }
+
+    @Test
+    public void testIsRightSequence4() throws Exception {
+        Assert.assertFalse(StringOps.isRightCode("()(()<)"));
+    }
 }

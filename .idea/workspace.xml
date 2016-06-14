@@ -2,16 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="508b8e65-59ce-4cdf-aad0-4577b5d5441a" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T10.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T11.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T11n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T12.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T12n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T13.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T13n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T14.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T14n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T15.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T15n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T16.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T17.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T17n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T18n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T19.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T1n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T20.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T21.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T22.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T22n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T23n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T2n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T4n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T5.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T5n.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T6.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T7.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T8.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/T9.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/Tmtmf1.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/Tmtmf2.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/Tmtmf3.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/Tmtsf.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/Tstmf1.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/Tstmf2.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/testData/Tstmf3.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/tests/ru/egor69/lt/finder/simple/SimpleTemplatesFinderTest.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/util/Parameters.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/finder/Parameters.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/testData/T18.java" afterPath="$PROJECT_DIR$/testData/T3.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/testData/T23.java" afterPath="$PROJECT_DIR$/testData/T2.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/testData/T4.java" afterPath="$PROJECT_DIR$/testData/T1.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/finder/Template.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/finder/Template.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/SimilarityTree.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/SimilarityTree.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/TreeTemplatesFinder.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/TreeTemplatesFinder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/ui/ParametersDialog.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/ui/ParametersDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ru/egor69/lt/util/StringOps.java" afterPath="$PROJECT_DIR$/src/ru/egor69/lt/util/StringOps.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/ru/egor69/lt/util/StringOpsTest.java" afterPath="$PROJECT_DIR$/tests/ru/egor69/lt/util/StringOpsTest.java" />
     </list>
     <ignored path="AutoLT.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,54 +73,7 @@
     <favorites_list name="AutoLT" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TemplatesFindAction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="67" column="0" selection-start-line="67" selection-start-column="0" selection-end-line="67" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ModesDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/ModesDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TreeTemplatesFinder.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/TreeTemplatesFinder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3327616">
-              <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParametersDialog.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/ParametersDialog.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -95,10 +81,10 @@
         <option value="Action" />
         <option value="Package Object" />
         <option value="Enum" />
-        <option value="JUnit4 Test Class" />
         <option value="Tag Library Descriptor" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -113,13 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tests/com/egor69/lt/util/StringOpsTest.java" />
-        <option value="$PROJECT_DIR$/src/com/egor69/lt/util/ListOps.java" />
-        <option value="$PROJECT_DIR$/src/com/egor69/lt/finder/simple/SimpleTemplate.java" />
-        <option value="$PROJECT_DIR$/src/com/egor69/lt/util/StringOps.java" />
-        <option value="$PROJECT_DIR$/src/com/egor69/lt/finder/tree/TreeSyntaxFinder.java" />
-        <option value="$PROJECT_DIR$/src/com/egor69/lt/finder/tree/CommonElementsTree.java" />
-        <option value="$PROJECT_DIR$/src/com/egor69/lt/finder/tree/SimilarityTree.java" />
         <option value="$PROJECT_DIR$/src/com/egor69/lt/ui/ResultsDialog.java" />
         <option value="$PROJECT_DIR$/src/com/egor69/lt/ui/Templates.form" />
         <option value="$PROJECT_DIR$/src/com/egor69/lt/TemplatesFindAction.java" />
@@ -164,6 +143,13 @@
         <option value="$PROJECT_DIR$/src/ru/egor69/lt/finder/Modes.java" />
         <option value="$PROJECT_DIR$/src/ru/egor69/lt/TemplatesFindAction.java" />
         <option value="$PROJECT_DIR$/src/ru/egor69/lt/ui/ModesDialog.java" />
+        <option value="$PROJECT_DIR$/testData/T1.java" />
+        <option value="$PROJECT_DIR$/testData/T4.java" />
+        <option value="$PROJECT_DIR$/tests/ru/egor69/lt/finder/simple/SimpleTemplatesFinderTest.java" />
+        <option value="$PROJECT_DIR$/testData/T2.java" />
+        <option value="$PROJECT_DIR$/tests/ru/egor69/lt/finder/tree/TreeTemplatesFinderTest.java" />
+        <option value="$PROJECT_DIR$/testData/T3.java" />
+        <option value="$PROJECT_DIR$/tests/ru/egor69/lt/util/StringOpsTest.java" />
       </list>
     </option>
   </component>
@@ -248,7 +234,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="tests" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -271,64 +257,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ui" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lt" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="finder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="AutoLT" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="META-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -350,6 +278,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.egor69.lt.finder.tree" />
       <recent name="com.egor69.lt.util" />
       <recent name="com.egor69.lt.finder.simple" />
     </key>
@@ -361,7 +290,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Plugin.Plugin">
+  <component name="RunManager">
     <configuration default="true" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="AutoLT" />
       <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
@@ -829,84 +758,6 @@
       <envs />
       <method />
     </configuration>
-    <configuration default="false" name="ListOpsTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.egor69.lt.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="AutoLT" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.egor69.lt.util" />
-      <option name="MAIN_CLASS_NAME" value="com.egor69.lt.util.ListOpsTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="StringOpsTest" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.egor69.lt.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="AutoLT" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.egor69.lt.util" />
-      <option name="MAIN_CLASS_NAME" value="com.egor69.lt.util.StringOpsTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="SimpleTemplatesFinderTest" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.egor69.lt.finder.simple.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="AutoLT" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.egor69.lt.finder.simple" />
-      <option name="MAIN_CLASS_NAME" value="com.egor69.lt.finder.simple.SimpleTemplatesFinderTest" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" value="" />
-      <option name="WORKING_DIRECTORY" value="file://$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="Plugin" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" factoryName="Plugin">
       <module name="AutoLT" />
       <option name="VM_PARAMETERS" value="-Xmx2048m -Xms1024m -XX:MaxPermSize=100m -ea" />
@@ -917,11 +768,8 @@
       </RunnerSettings>
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="JUnit.ListOpsTest" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.StringOpsTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.SimpleTemplatesFinderTest" />
-      <item index="3" class="java.lang.String" itemvalue="Plugin.Plugin" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Plugin.Plugin" />
     </list>
   </component>
   <component name="SbtLocalSettings">
@@ -994,29 +842,11 @@
       <workItem from="1465594916648" duration="4520000" />
       <workItem from="1465599836109" duration="700000" />
       <workItem from="1465769728285" duration="13503000" />
-      <workItem from="1465937021958" duration="6463000" />
+      <workItem from="1465937021958" duration="8436000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ListOpsTest - 2016.05.03 at 19h 02m 05s.xml">
-      <configuration name="ListOpsTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListOpsTest - 2016.05.03 at 19h 26m 11s.xml">
-      <configuration name="ListOpsTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListOpsTest - 2016.05.03 at 19h 28m 11s.xml">
-      <configuration name="ListOpsTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListOpsTest - 2016.05.03 at 19h 31m 05s.xml">
-      <configuration name="ListOpsTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ListOpsTest - 2016.05.03 at 19h 31m 46s.xml">
-      <configuration name="ListOpsTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="SimpleTemplatesFinderTest - 2016.05.03 at 19h 05m 18s.xml">
-      <configuration name="SimpleTemplatesFinderTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="SimpleTemplatesFinderTest - 2016.05.03 at 19h 11m 26s.xml">
       <configuration name="SimpleTemplatesFinderTest" configurationId="JUnit" />
     </history-entry>
@@ -1029,9 +859,27 @@
     <history-entry file="StringOpsTest - 2016.05.03 at 19h 00m 07s.xml">
       <configuration name="StringOpsTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="StringOpsTest_(1) - 2016.06.15 at 02h 04m 01s.xml">
+      <configuration name="StringOpsTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StringOpsTest_(1) - 2016.06.15 at 02h 04m 25s.xml">
+      <configuration name="StringOpsTest (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="StringOpsTest_testIsRightSequence4 - 2016.06.15 at 02h 04m 18s.xml">
+      <configuration name="StringOpsTest.testIsRightSequence4" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TreeTemplatesFinderTest - 2016.06.15 at 01h 55m 19s.xml">
+      <configuration name="TreeTemplatesFinderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TreeTemplatesFinderTest - 2016.06.15 at 01h 56m 55s.xml">
+      <configuration name="TreeTemplatesFinderTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TreeTemplatesFinderTest - 2016.06.15 at 01h 59m 48s.xml">
+      <configuration name="TreeTemplatesFinderTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="421986000" />
+    <option name="totallyTimeSpent" value="423959000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1044,7 +892,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1053,10 +901,10 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20294599" sideWeight="0.28744328" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31423897" sideWeight="0.7125567" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.7348609" sideWeight="0.7125567" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24583964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24583964" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24962178" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1140,118 +988,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/xml/impl/src/com/intellij/psi/impl/source/html/HtmlScriptLanguageInjector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.21197008">
-          <caret line="34" column="23" selection-start-line="34" selection-start-column="23" selection-end-line="34" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/core-api/src/com/intellij/lang/injection/MultiHostInjector.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33915213">
-          <caret line="33" column="26" selection-start-line="33" selection-start-column="26" selection-end-line="33" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/core-api/src/com/intellij/openapi/fileTypes/FileType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33167082">
-          <caret line="29" column="20" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/lang-api/src/com/intellij/codeInsight/template/TemplateContextType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2817955">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/projectModel-impl/src/com/intellij/core/CoreModule.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45885286">
-          <caret line="51" column="43" selection-start-line="51" selection-start-column="43" selection-end-line="51" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/extensions/src/com/intellij/openapi/extensions/ExtensionsArea.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33167082">
-          <caret line="33" column="24" selection-start-line="33" selection-start-column="24" selection-end-line="33" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/extensions/src/com/intellij/openapi/extensions/impl/ExtensionsAreaImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4382716">
-          <caret line="330" column="26" selection-start-line="330" selection-start-column="26" selection-end-line="330" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/core-api/src/com/intellij/openapi/project/Project.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="34" column="17" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/extensions/src/com/intellij/openapi/extensions/AreaInstance.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3148148">
-          <caret line="20" column="21" selection-start-line="20" selection-start-column="21" selection-end-line="20" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/core-api/src/com/intellij/openapi/components/ComponentManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="35" column="17" selection-start-line="35" selection-start-column="17" selection-end-line="35" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/core-api/src/com/intellij/openapi/application/ApplicationManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="34" column="21" selection-start-line="34" selection-start-column="21" selection-end-line="34" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/extensions/src/com/intellij/openapi/extensions/Extensions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36225596">
-          <caret line="98" column="47" selection-start-line="98" selection-start-column="47" selection-end-line="98" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/extensions/src/com/intellij/openapi/extensions/ExtensionPointName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.44685465">
-          <caret line="48" column="26" selection-start-line="48" selection-start-column="26" selection-end-line="48" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/platform-impl/src/com/intellij/openapi/progress/util/ProgressBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17495711">
-          <caret line="24" column="17" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/function/BiConsumer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33333334">
-          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/ru/egor69/lt/finder/simple/SimpleTemplatesFinderTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5831904">
-          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Downloads/ideaIC-143.382.35/platform/util/src/com/intellij/openapi/util/Computable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.16483517">
@@ -1402,14 +1138,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/util/StringOps.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6861063">
-          <caret line="82" column="40" selection-start-line="82" selection-start-column="40" selection-end-line="82" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/finder/Template.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43222508">
@@ -1498,16 +1226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/ParametersDialog.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/awt/Container.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1523,7 +1241,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="56" selection-start-line="38" selection-start-column="56" selection-end-line="38" selection-end-column="56" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1536,10 +1254,72 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/ui/ParametersDialog.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3619211">
+          <caret line="45" column="52" selection-start-line="45" selection-start-column="52" selection-end-line="45" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/T1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11663808">
+          <caret line="4" column="15" selection-start-line="4" selection-start-column="15" selection-end-line="4" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/finder/tree/TreeTemplatesFinder.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3327616">
-          <caret line="113" column="0" selection-start-line="113" selection-start-column="0" selection-end-line="113" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.48542023">
+          <caret line="23" column="26" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/T2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11663808">
+          <caret line="5" column="15" selection-start-line="5" selection-start-column="15" selection-end-line="5" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testData/T3.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.087478556">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#1355#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/egor69/lt/util/StringOps.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.74442536">
+          <caret line="84" column="26" selection-start-line="84" selection-start-column="26" selection-end-line="84" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ru/egor69/lt/util/StringOpsTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.3910806">
+          <caret line="83" column="26" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/ru/egor69/lt/finder/tree/TreeTemplatesFinderTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.0325902">
+          <caret line="74" column="27" selection-start-line="74" selection-start-column="27" selection-end-line="74" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

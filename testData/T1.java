@@ -1,49 +1,18 @@
-// for (int _ = _; _ < _; ++_) {
-//     int sq = _ * _;
-//     System.out.println(sq);
-// }
+// Rectangle _ = new Rectangle(0, 0, _, _);
+
+import javafx.scene.shape.Rectangle;
 
 public class T1 {
     static {
-        for (int i = 0; i < 100; ++i) {
-            int sq = i * i;
-            System.out.println(sq);
-        }
-        for (int i = 3; i < 45; ++i) {
-            int sq = i * i;
-            System.out.println(sq);
-        }
-        for (int j = 4; j < 10; ++j) {
-            int sq = j * j;
-            System.out.println(sq);
-        }
-        for (int j = 5; j < 23; ++j) {
-            int sq = j * j;
-            System.out.println(sq);
-        }
-        for (int i = 80; i < 101; ++i) {
-            int sq = i * i;
-            System.out.println(sq);
-        }
-        for (int i = 9; i < 14; ++i) {
-            int sq = i * i;
-            System.out.println(sq);
-        }
-        for (int k = 50; k < 170; ++k) {
-            int sq = k * k;
-            System.out.println(sq);
-        }
-        for (int k = 0; k < 100; ++k) {
-            int sq = k * k;
-            System.out.println(sq);
-        }
-        for (int i = 30; i < 1000; ++i) {
-            int sq = i * i;
-            System.out.println(sq);
-        }
-        for (int j = 20; j < 10000; ++j) {
-            int sq = j * j;
-            System.out.println(sq);
-        }
+        Rectangle rectangle0 = new Rectangle(0, 0, 690, 1001);
+        Rectangle rectangle1 = new Rectangle(0, 0, 691, 1002);
+        Rectangle rectangle2 = new Rectangle(0, 0, 692, 1003);
+        Rectangle rectangle3 = new Rectangle(0, 0, 693, 1004);
+        Rectangle rectangle4 = new Rectangle(0, 0, 694, 1005);
+        Rectangle rectangle5 = new Rectangle(0, 0, 695, 1006);
+        Rectangle rectangle6 = new Rectangle(0, 0, 696, 1007);
+        Rectangle rectangle7 = new Rectangle(0, 0, 697, 1008);
+        Rectangle rectangle8 = new Rectangle(0, 0, 698, 1009);
+        Rectangle rectangle9 = new Rectangle(0, 0, 699, 1000);
     }
 }

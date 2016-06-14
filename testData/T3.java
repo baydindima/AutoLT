@@ -1,105 +1,62 @@
-// try (Scanner _ = new Scanner(_)) {
-//     while (_.hasNext()) {
-//         _
-//     }
-// } catch (IOException e) {
-//     _
+// static {
+//     _ = new HashMap<>();
+//     _.put("default", 0);
 // }
 
-import java.io.IOException;
-import java.nio.file.Paths;
-import java.util.Scanner;
+import java.util.HashMap;
+import java.util.Map;
 
 public class T3 {
+    static Map<String, Integer> map0;
+    static Map<String, Integer> map1;
+    static Map<String, Integer> map2;
+    static Map<String, Integer> map3;
+    static Map<String, Integer> map4;
+    static Map<String, Integer> map5;
+    static Map<String, Integer> map6;
+    static Map<String, Integer> map7;
+    static Map<String, Integer> map8;
+    static Map<String, Integer> map9;
+
     static {
-        try (Scanner sc = new Scanner(Paths.get("/d1/d2/d3/file.in"))) {
-            while (sc.hasNext()) {
-                System.out.print(sc.next().toLowerCase());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try (Scanner scanner = new Scanner(Paths.get("fff.in"))) {
-            while (scanner.hasNext()) {
-                System.out.println("next");
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-            System.out.println(e);
-        }
-        try (Scanner s = new Scanner(Paths.get("la.la"))) {
-            while (s.hasNext()) {
-                int i = s.next().length() + 1;
-                --i;
-                System.err.print(i);
-                System.exit(32);
-            }
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-        try (Scanner scan = new Scanner(Paths.get("trw.in"))) {
-            while (scan.hasNext()) {
-                int k = 69;
-                --k;
-                --k;
-                k = k + 3;
-            }
-        } catch (IOException e) {
-            int j = 69;
-            System.exit(j);
-        }
-        try (Scanner scnr = new Scanner(Paths.get("la/fff.file"))) {
-            while (scnr.hasNext()) {
-                double pi = Math.PI;
-                double piSqrt = Math.sqrt(pi);
-                System.out.print(piSqrt);
-            }
-        } catch (IOException e) {
-            String msg = e.getMessage();
-            System.err.println(msg);
-        }
-        try (Scanner sc = new Scanner(Paths.get("/d1/d2/file.in"))) {
-            while (sc.hasNext()) {
-                System.out.print(sc.next().toLowerCase());
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        try (Scanner scanner = new Scanner(Paths.get("ff.in"))) {
-            while (scanner.hasNext()) {
-                System.out.println("next");
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-        try (Scanner s = new Scanner(Paths.get("lalala"))) {
-            while (s.hasNext()) {
-                int i = s.next().length();
-                ++i;
-                System.out.print(i);
-            }
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-        try (Scanner scan = new Scanner(Paths.get("trw.in"))) {
-            while (scan.hasNext()) {
-                int k = 0;
-                ++k;
-                ++k;
-                k = k + 1;
-            }
-        } catch (IOException e) {
-            int i = 69;
-            System.exit(i);
-        }
-        try (Scanner scn = new Scanner(Paths.get("la/fff.file"))) {
-            while (scn.hasNext()) {
-                double pi = Math.PI;
-                double a = Math.sqrt(pi);
-            }
-        } catch (IOException e) {
-            String msg = e.getMessage();
-            System.err.println(msg);
-        }
+        map0 = new HashMap<>();
+        map0.put("default", 0);
     }
+    static {
+        map1 = new HashMap<>();
+        map1.put("default", 0);
+    }
+    static {
+        map2 = new HashMap<>();
+        map2.put("default", 0);
+    }
+    static {
+        map3 = new HashMap<>();
+        map3.put("default", 0);
+    }
+    static {
+        map4 = new HashMap<>();
+        map4.put("default", 0);
+    }
+    static {
+        map5 = new HashMap<>();
+        map5.put("default", 0);
+    }
+    static {
+        map6 = new HashMap<>();
+        map6.put("default", 0);
+    }
+    static {
+        map7 = new HashMap<>();
+        map7.put("default", 0);
+    }
+    static {
+        map8 = new HashMap<>();
+        map8.put("default", 0);
+    }
+    static {
+        map9 = new HashMap<>();
+        map9.put("default", 0);
+    }
+
 }
