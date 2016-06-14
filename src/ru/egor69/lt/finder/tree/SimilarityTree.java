@@ -32,10 +32,14 @@ public class SimilarityTree {
             List<SimilarityTree> childrenTrees = childrenTreesMap.get(key);
             if (childrenTrees == null) {
                 childrenTrees = new ArrayList<>();
-                for (int i = 0; i < childrenSize; i++) childrenTrees.add(new SimilarityTree());
+                for (int i = 0; i < childrenSize; i++) {
+                    childrenTrees.add(new SimilarityTree());
+                }
                 childrenTreesMap.put(key, childrenTrees);
             }
-            for (int i = 0; i < childrenSize; i++) childrenTrees.get(i).add(children.get(i));
+            for (int i = 0; i < childrenSize; i++) {
+                childrenTrees.get(i).add(children.get(i));
+            }
         }
     }
 

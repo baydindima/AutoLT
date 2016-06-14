@@ -63,4 +63,26 @@ public final class StringOps {
         for (String ss : strings) predicate = predicate.or(s -> s.contains(ss));
         return predicate;
     }
+
+    public static boolean isRightCode(String s) {
+        String s1 = s.replaceAll("[^()]+", "");
+        String s2 = s.replaceAll("[^\\[\\]]+", "").replace('[', '(').replace(']', ')');
+        String s3 = s.replaceAll("[^\\{}]+", "").replace('{', '(').replace('}', ')');
+        String s4 = s.replaceAll("[^<>]+", "").replace('<', '(').replace('>', ')');
+        return isRightSequence(s1) && isRightSequence(s2) && isRightSequence(s3) && isRightSequence(s4);
+    }
+
+    private static boolean isRightSequence(String s) {
+        int depth = 0;
+        for (int i = 0; i < s.length(); ++i) {
+            if (s.charAt(i) == '(') {
+                ++depth;
+            } else {
+                --depth;
+            }
+            if (depth < 0) return false;
+        }
+        return depth == 0;
+    }
+
 }

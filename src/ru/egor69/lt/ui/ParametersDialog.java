@@ -1,12 +1,15 @@
 package ru.egor69.lt.ui;
 
-import ru.egor69.lt.util.Parameters;
+import ru.egor69.lt.finder.Modes;
+import ru.egor69.lt.finder.Parameters;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.DialogWrapper;
 import com.intellij.openapi.util.Pair;
 import com.intellij.ui.components.JBLabel;
 import com.intellij.ui.components.JBPanel;
 import org.jetbrains.annotations.Nullable;
+import ru.egor69.lt.finder.element.ControlStructuresFinderParameters;
+import ru.egor69.lt.finder.tree.TreeTemplatesFinderParameters;
 
 import javax.swing.*;
 import java.awt.*;
@@ -33,7 +36,7 @@ public class ParametersDialog extends DialogWrapper {
         spinnerConstraints.gridx = 1;
         spinnerConstraints.weightx = 1.;
         spinnerConstraints.fill = GridBagConstraints.HORIZONTAL;
-        for (Parameters.Name name : Parameters.Name.values()) {
+        for (Parameters.Name name : parameters.names()) {
             JLabel jLabel = new JBLabel(Parameters.getText(name) + ":   ");
             parametersPanel.add(jLabel, labelConstraints);
             Pair<Integer, Integer> bounds = Parameters.getBounds(name);
@@ -53,8 +56,18 @@ public class ParametersDialog extends DialogWrapper {
         return centerPanel;
     }
 
-    public static Parameters showDialogAndGetParameters(Project project) {
-        Parameters parameters = new Parameters();
+    public static Parameters showDialogAndGetParameters(Project project, Modes.Name mode) {
+        Parameters parameters;
+        switch (mode) {
+            case TEMPLATES_FINDER:
+                parameters = new TreeTemplatesFinderParameters();
+                break;
+            case CONTROL_STRUCTURES_FINDER:
+                parameters = new ControlStructuresFinderParameters();
+                break;
+            default:
+                return null;
+        }
         ParametersDialog parametersDialog = new ParametersDialog(project, parameters);
         parametersDialog.show();
         if (parametersDialog.getExitCode() == DialogWrapper.OK_EXIT_CODE) return parameters;

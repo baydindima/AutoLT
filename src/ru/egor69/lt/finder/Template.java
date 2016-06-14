@@ -9,16 +9,25 @@ public class Template {
     private String body;
     private int occurrences;
     private List<String> tokens;
-    private FileType fileType = FileTypes.UNKNOWN;
+    private FileType fileType;
 
-    public Template(String body, int occurrences, List<String> tokens) {
+    public Template(String body, int occurrences, List<String> tokens, FileType fileType) {
         this.body = body;
         this.occurrences = occurrences;
         this.tokens = tokens;
+        this.fileType = fileType;
+    }
+
+    public Template(String body, int occurrences, List<String> tokens) {
+        this(body, occurrences, tokens, FileTypes.UNKNOWN);
     }
 
     public void setFileType(FileType fileType) {
         this.fileType = fileType;
+    }
+
+    public void setOccurrences(int occurrences) {
+        this.occurrences = occurrences;
     }
 
     public String getBody() {
