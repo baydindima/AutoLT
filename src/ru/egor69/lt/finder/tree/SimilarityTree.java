@@ -20,14 +20,18 @@ public class SimilarityTree {
     }
 
     public void add(ASTNode node) {
+        // Достаем всех детей
         List<ASTNode> children = Arrays.stream(node.getChildren(null))
                 .collect(Collectors.toList());
         int childrenSize = children.size();
         if (childrenSize == 0) {
+            // Если это лист, нормализуем пробелы и добавляем этот текст в leafValuesOccurrences
             String text = node.getText();
             if (text.matches("\\s+")) text = " ";
             leafValuesOccurrences.put(text, leafValuesOccurrences.getOrDefault(text, 0) + 1);
         } else {
+            // Иначе находим SimilarityTree с таким же типом элемента и количеством детей
+            // Добавляем ноду в это дерево
             Pair<IElementType, Integer> key = new Pair<>(node.getElementType(), childrenSize);
             List<SimilarityTree> childrenTrees = childrenTreesMap.get(key);
             if (childrenTrees == null) {
@@ -44,10 +48,14 @@ public class SimilarityTree {
     }
 
     public Template getTemplate(ASTNode node, int matchesMinimum) {
+        // Находим количество детей у этой ноды
         List<ASTNode> children = Arrays.stream(node.getChildren(null))
                 .collect(Collectors.toList());
         int childrenSize = children.size();
         if (childrenSize == 0) {
+            // Если это лист
+            // Возвращаем placeholder если количество повторений мало
+            // Иначе возвращаем текст листа
             String text = node.getText();
             boolean isWS = false;
             if (text.matches("\\s*")) {
@@ -63,6 +71,9 @@ public class SimilarityTree {
                     :
                     new Template(PLACEHOLDER_STRING, Integer.MAX_VALUE, new LinkedList<>());
         } else {
+            // Иначе выбираем подходящии SimilarityTree
+            // Вызываем рекурсивно от детей
+            // Берем минимум повторяемости
             Pair<IElementType, Integer> key = new Pair<>(node.getElementType(), childrenSize);
             List<SimilarityTree> childrenTrees = childrenTreesMap.get(key);
             StringBuilder builder = new StringBuilder();

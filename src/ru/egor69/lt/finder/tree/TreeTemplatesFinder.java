@@ -47,12 +47,15 @@ public class TreeTemplatesFinder {
         Predicate<String> defaultPredicate = s -> false;
         Map<FileType, Predicate<String>> notAnalyzePredicates = new HashMap<>();
         Map<FileType, Predicate<String>> notShowPredicates = new HashMap<>();
+
+        // Загружаем все игнорируемые keywords
         for (FileTypeTemplateFilter filter :
                 filters) {
             notAnalyzePredicates.put(filter.fileType(), StringOps.containsAnyPredicate(filter.keywordsNotAnalyze()));
             notShowPredicates.put(filter.fileType(), StringOps.containsAnyPredicate(filter.keywordsNotShow()));
         }
 
+        // Строим связку тип файла -> файлы
         final double[] i = {0};
         Map<FileType, List<PsiFile>> psiFilesMap = new HashMap<>();
         psiFiles.forEach(psiFile -> {
@@ -66,6 +69,8 @@ public class TreeTemplatesFinder {
                 System.out.println(i[0] / psiFiles.size());
             }
         });
+
+        // Удаляем файлы с обычным текстом и неизвестным форматом
         psiFilesMap.remove(PlainTextFileType.INSTANCE);
         psiFilesMap.remove(UnknownFileType.INSTANCE);
 
@@ -82,13 +87,19 @@ public class TreeTemplatesFinder {
 
         Set<Template> templateSet = new HashSet<>();
 
+        // Для каждого типа файла
         final double[] fileTypeNumber = {0.};
         psiFilesMap.forEach((fileType, typedPsiFiles) -> {
+
             Predicate<String> fileTypeNotAnalyzePredicate = notAnalyzePredicates.getOrDefault(fileType, defaultPredicate);
             Predicate<String> fileTypeNotShowPredicate = notShowPredicates.getOrDefault(fileType, defaultPredicate);
 
             Map<IElementType, List<ASTNode>> astNodesMap = new HashMap<>();
 
+            // Строим рекурсивную функцию, для каждой ноды в аст-дереве
+            // Если параметры ноды подходят, добавляем ее в мапу тип элемента -> ноды
+            // вызываемся рекурсивано от детей
+            // Если у ноды слишком длинный текст, просто вызываемся от детей
             Recursive<Consumer<ASTNode>> recursiveAstNodeConsumer = new Recursive<>();
             recursiveAstNodeConsumer.function = node -> {
                 if (node.getTextLength() >= lengthMaximum) {
@@ -111,6 +122,7 @@ public class TreeTemplatesFinder {
                 }
             };
 
+            // Вызываем recursiveAstNodeConsumer для каждого файла, кроме файлов содержащих фразу "GUI Designer"?
             typedPsiFiles.stream().forEach(psiFile -> {
                 if (!psiFile.getText().contains("GUI Designer")) {
                     for (PsiElement element :
@@ -120,10 +132,16 @@ public class TreeTemplatesFinder {
                 }
             });
 
+
+            // Для каждого типа элемента создаем SimilarityTree
+            // Добавляем в это дерево каждую ноду с данным типом
             final double[] elementTypeNumber = {0.};
             astNodesMap.forEach((elementType, typedAstNodes) -> {
                 SimilarityTree similarityTree = new SimilarityTree();
                 typedAstNodes.forEach(similarityTree::add);
+
+                // Для каждой ноды достаем template
+                // Если template подходит под условия, добавляем его к множеству templateSet
                 typedAstNodes.forEach(astNode -> {
                     Template template = similarityTree.getTemplate(astNode, matchesMinimum);
                     if (templatePredicate.test(template) &&
@@ -140,9 +158,11 @@ public class TreeTemplatesFinder {
             fileTypeNumber[0]++;
         });
 
+        // Сортируем templateList по количеству повторений
         List<Template> templateList = new ArrayList<>(templateSet);
         Collections.sort(templateList, (o1, o2) -> Integer.compare(o2.getOccurrences(), o1.getOccurrences()));
 
+        // Удаляем из списка все template, которые являются подпоследовательностями других template
         Set<Integer> toDeleteSet = new TreeSet<>(Comparator.reverseOrder());
         for (int is = 0; is < templateList.size(); ++is) {
             for (int iss = 0; iss < templateList.size(); ++iss) {
@@ -153,6 +173,7 @@ public class TreeTemplatesFinder {
         }
         toDeleteSet.forEach(idx -> templateList.remove(idx.intValue()));
 
+        // Возвращаем первые templatesToShow template
         return templateList.stream().limit(templatesToShow).collect(Collectors.toList());
     }
 }

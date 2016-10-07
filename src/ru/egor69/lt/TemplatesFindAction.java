@@ -31,6 +31,10 @@ public class TemplatesFindAction extends AnAction {
         final Project project = e.getProject();
         if (project == null) return;
 
+//        TemplateSettings.getInstance().addTemplate(
+//                new TemplateImpl("test template key", "test template string", TemplateSettings.USER_GROUP_NAME)
+//        );
+
         ProjectRootManager projectRootManager = ProjectRootManager.getInstance(project);
         VirtualFile[] sourceRoots = projectRootManager.getContentSourceRoots();
 
